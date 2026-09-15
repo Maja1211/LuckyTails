@@ -1,0 +1,27 @@
+.formular-info {
+    font-size: 0.85rem;
+    color: var(--boja-tekst-slaba);
+}
+
+.termin-slika {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.polje-red {
+    flex-wrap: wrap;
+}
+
+.polje-red .dugme {
+    white-space: nowrap;
+}
+
+input[type="date"],
+input[type="time"] {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1.5px solid var(--boja-ivica);
+}

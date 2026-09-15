@@ -1,0 +1,191 @@
+<div class="kontejner">
+  <div class="naslov-red">
+    <h2>{{ 'OBJAVE.NASLOV' | translate }}</h2>
+    @if (!prikaziFormu) {
+      <button class="dugme dugme-primarno" (click)="novaObjava()">{{ 'OBJAVE.DODAJ_NOVU' | translate }}</button>
+    }
+  </div>
+
+  @if (poruka && !prikaziFormu) {
+    <p class="poruka poruka-greska">{{ poruka }}</p>
+  }
+
+  @if (prikaziFormu) {
+    <form #f="ngForm" (ngSubmit)="sacuvaj()" class="karta forma">
+      <div class="polje">
+        <label>{{ 'COMMON.NAZIV' | translate }} *</label>
+        <input type="text" [(ngModel)]="naziv" name="naziv" required #nazivPolje="ngModel">
+        @if (nazivPolje.invalid && nazivPolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.VRSTA' | translate }}</label>
+        <select [(ngModel)]="vrsta" name="vrsta">
+          <option value="pas">{{ 'PRETRAGA.PAS' | translate }}</option>
+          <option value="macka">{{ 'PRETRAGA.MACKA' | translate }}</option>
+        </select>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.RASA' | translate }} *</label>
+        @if (!unosNoveRase) {
+          <select [ngModel]="rasa" (ngModelChange)="odaberiRasu($event)" name="rasaIzbor">
+            @if (!rasa) {
+              <option value="">{{ 'OBJAVE.IZABERI_RASU' | translate }}</option>
+            }
+            @for (r of sveRase; track r) {
+              <option [value]="r">{{ r | prevediRasu }}</option>
+            }
+            <option value="__nova__">{{ 'OBJAVE.NOVA_RASA' | translate }}</option>
+          </select>
+        } @else {
+          <input type="text" [(ngModel)]="rasa" name="rasa" required #rasaPolje="ngModel" [placeholder]="'OBJAVE.NOVA_RASA' | translate">
+          <button type="button" class="dugme-tekst" (click)="unosNoveRase = false">{{ 'OBJAVE.IZABERI_POSTOJECU' | translate }}</button>
+          @if (rasaPolje.invalid && rasaPolje.touched) {
+            <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+          }
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'ZIVOTINJA.STAROST_GODINE' | translate }} *</label>
+        <input type="number" min="0" max="40" [(ngModel)]="starostGodine" name="starostGodine" required #godinePolje="ngModel">
+        @if (godinePolje.invalid && godinePolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.BROJ_NEISPRAVAN' | translate }}</span>
+        }
+      </div>
+
+      @if (starostGodine === 0) {
+        <div class="polje">
+          <label>{{ 'ZIVOTINJA.STAROST_DODATNI_MESECI' | translate }} *</label>
+          <input type="number" min="0" max="11" [(ngModel)]="starostDodatniMeseci" name="starostDodatniMeseci" required #mesecPolje="ngModel">
+          @if (mesecPolje.invalid && mesecPolje.touched) {
+            <span class="greska-polja">{{ 'VALIDACIJA.BROJ_NEISPRAVAN' | translate }}</span>
+          }
+        </div>
+      }
+
+      @if (starostUkupnoMeseci != null) {
+        <span class="formular-napomena">{{ starostUkupnoMeseci | starost }}</span>
+      }
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.POL' | translate }}</label>
+        <select [(ngModel)]="pol" name="pol">
+          <option value="muzjak">{{ 'PRETRAGA.MUZJAK' | translate }}</option>
+          <option value="zenka">{{ 'PRETRAGA.ZENKA' | translate }}</option>
+        </select>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'ZIVOTINJA.KARAKTER' | translate }} *</label>
+        <textarea rows="3" [(ngModel)]="opisKaraktera" name="opisKaraktera" required #opisPolje="ngModel"></textarea>
+        @if (opisPolje.invalid && opisPolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje polje-red">
+        <input type="checkbox" id="sterilisan" [(ngModel)]="sterilisan" name="sterilisan">
+        <label for="sterilisan">{{ 'ZIVOTINJA.STERILISAN' | translate }}</label>
+      </div>
+
+      <div class="polje polje-red">
+        <input type="checkbox" id="vakcinisan" [(ngModel)]="vakcinisan" name="vakcinisan">
+        <label for="vakcinisan">{{ 'ZIVOTINJA.VAKCINISAN' | translate }}</label>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'ZIVOTINJA.ZDRAVSTVENO' | translate }}</label>
+        <textarea rows="2" [(ngModel)]="zdravstveneInfo" name="zdravstveneInfo"></textarea>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'OBJAVE.FOTOGRAFIJE' | translate }} {{ idUizmjeni == null ? '*' : '' }}</label>
+        <input type="file" multiple accept="image/*" (change)="odaberiFajlove($event)">
+        @if (nedostajeFotografija) {
+          <span class="greska-polja">{{ 'OBJAVE.FOTOGRAFIJA_OBAVEZNA' | translate }}</span>
+        }
+      </div>
+
+      @if (poruka) {
+        <p class="poruka poruka-greska">{{ poruka }}</p>
+      }
+
+      <div class="polje-red">
+        <button type="submit" class="dugme dugme-primarno" [disabled]="f.invalid || nedostajeFotografija">{{ 'COMMON.SACUVAJ' | translate }}</button>
+        <button type="button" class="dugme dugme-sekundarno" (click)="prikaziFormu = false">{{ 'COMMON.OTKAZI' | translate }}</button>
+      </div>
+    </form>
+  }
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else if (zivotinje.length == 0 && !prikaziFormu) {
+    <p class="poruka poruka-greska">{{ 'COMMON.NEMA_PODATAKA' | translate }}</p>
+  } @else {
+
+    @if (aktivneZivotinje.length > 0) {
+      <div class="mreza-kartica" style="margin-top: 24px;">
+        @for (z of aktivneZivotinje; track z._id) {
+          <ng-container [ngTemplateOutlet]="kartica" [ngTemplateOutletContext]="{ z: z }"></ng-container>
+        }
+      </div>
+    }
+
+    @if (udomljeneZivotinje.length > 0) {
+      <h3 style="margin-top: 32px;">{{ 'OBJAVE.UDOMLJENE' | translate }}</h3>
+      <div class="mreza-kartica udomljene-mreza">
+        @for (z of udomljeneZivotinje; track z._id) {
+          <ng-container [ngTemplateOutlet]="kartica" [ngTemplateOutletContext]="{ z: z }"></ng-container>
+        }
+      </div>
+    }
+  }
+</div>
+
+<ng-template #kartica let-z="z">
+  <div class="karta zivotinja-kartica" [class.udomljena-kartica]="z.statusZivotinje == 'udomljena'">
+    <img [src]="slika(z)" [alt]="z.naziv">
+    <div class="zivotinja-info">
+      <h3>{{ z.naziv }}</h3>
+      @if (z.statusZivotinje == 'udomljena') {
+        <p>{{ 'PRETRAGA.' + z.vrsta.toUpperCase() | translate }} · {{ z.rasa | prevediRasu }}</p>
+      } @else {
+        <p>{{ z.rasa | prevediRasu }} · {{ z.starostMeseci | starost }}</p>
+      }
+
+      @if (z.statusZivotinje == 'udomljena') {
+        <span class="oznaka oznaka-odobreno">{{ 'OBJAVE.UDOMLJENA_OZNAKA' | translate }}</span>
+      } @else {
+        <span class="oznaka" [class]="klasaOznake(z.statusObjave)">
+          {{ 'OBJAVE.STATUS_' + z.statusObjave.toUpperCase() | translate }}
+        </span>
+      }
+
+      @if (z.statusObjave == 'odbijena' && z.razlogOdbijanja) {
+        <p class="poruka poruka-greska" style="margin-top: 8px;">{{ z.razlogOdbijanja | prevediTekst }}</p>
+      }
+
+      @if (z.statusObjave == 'odobrena' && z.statusZivotinje != 'udomljena') {
+        <div class="polje" style="margin-top: 10px;">
+          <label>{{ 'OBJAVE.PROMENI_STATUS' | translate }}</label>
+          <select [ngModel]="z.statusZivotinje" (ngModelChange)="promeniStatus(z, $event)">
+            <option value="dostupna">{{ 'ZIVOTINJA.STATUS_DOSTUPNA' | translate }}</option>
+            <option value="rezervisana">{{ 'ZIVOTINJA.STATUS_REZERVISANA' | translate }}</option>
+            <option value="udomljena">{{ 'ZIVOTINJA.STATUS_UDOMLJENA' | translate }}</option>
+          </select>
+        </div>
+      }
+
+      @if (z.statusZivotinje != 'udomljena') {
+        <div class="polje-red" style="margin-top: 10px;">
+          <button class="dugme dugme-sekundarno dugme-malo" (click)="izmeni(z)">{{ 'COMMON.IZMENI' | translate }}</button>
+          <button class="dugme dugme-opasnost dugme-malo" (click)="obrisi(z._id)">{{ 'COMMON.OBRISI' | translate }}</button>
+        </div>
+      }
+    </div>
+  </div>
+</ng-template>

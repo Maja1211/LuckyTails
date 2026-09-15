@@ -1,0 +1,40 @@
+.naslov-red {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.forma {
+    max-width: 560px;
+    margin-bottom: 10px;
+}
+
+.zivotinja-kartica {
+    padding: 0;
+    overflow: hidden;
+}
+
+.zivotinja-kartica img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    padding: 14px;
+    background: var(--boja-pozadina);
+    box-sizing: border-box;
+}
+
+.zivotinja-info {
+    padding: 14px 16px;
+}
+
+.udomljene-mreza {
+    opacity: 0.85;
+}
+
+.udomljena-kartica img {
+    filter: grayscale(35%);
+}

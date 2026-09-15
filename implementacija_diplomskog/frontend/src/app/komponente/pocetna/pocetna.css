@@ -1,0 +1,116 @@
+.hero {
+    background-image: linear-gradient(90deg, rgba(253, 248, 242, 0.94) 0%, rgba(253, 248, 242, 0.75) 42%, rgba(253, 248, 242, 0.15) 62%),
+        url('/assets/img/hero-pozadina.jpg');
+    background-size: cover;
+    background-position: right center;
+    padding: 60px 20px;
+}
+
+.hero-sadrzaj {
+    max-width: 560px;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.hero-podnaslov {
+    font-size: 1.15rem;
+    color: var(--boja-sekundarna);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.hero-opis {
+    color: var(--boja-tekst-slaba);
+    margin-bottom: 28px;
+}
+
+.hero-dugmad {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.hero-statistika {
+    display: flex;
+    gap: 36px;
+}
+
+.hero-statistika div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-statistika strong {
+    font-family: var(--font-naslov);
+    font-size: 1.8rem;
+    color: var(--boja-primarna-tamna);
+}
+
+.hero-statistika span {
+    color: var(--boja-tekst-slaba);
+    font-size: 0.85rem;
+}
+
+.izdvojene-sekcija {
+    padding-top: 48px;
+}
+
+.izdvojene-sekcija h2 {
+    margin-bottom: 20px;
+}
+
+.zivotinja-kartica {
+    padding: 0;
+    overflow: hidden;
+    color: inherit;
+    display: block;
+}
+
+.zivotinja-kartica:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    transition: transform 0.15s ease;
+}
+
+.zivotinja-kartica img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    padding: 14px;
+    background: var(--boja-pozadina);
+    box-sizing: border-box;
+}
+
+.zivotinja-info {
+    padding: 14px 16px;
+}
+
+.zivotinja-info h3 {
+    margin-bottom: 4px;
+}
+
+.zivotinja-lokacija {
+    color: var(--boja-tekst-slaba);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding: 40px 16px;
+        background-image: linear-gradient(180deg, rgba(253, 248, 242, 0.96) 0%, rgba(253, 248, 242, 0.9) 55%, rgba(253, 248, 242, 0.55) 100%),
+            url('/assets/img/hero-pozadina.jpg');
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-sadrzaj {
+        max-width: none;
+    }
+}

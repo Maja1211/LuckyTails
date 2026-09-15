@@ -1,0 +1,14 @@
+.forma {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.faq-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-stavka h4 {
+    color: var(--boja-primarna-tamna);
+}

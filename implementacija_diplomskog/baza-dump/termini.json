@@ -1,0 +1,572 @@
+[{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefe"
+	},
+	"korisnikId": {
+		"$oid": "6aa17f2e58f4f2698a6de9fe"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef8"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"datumVreme": {
+		"$date": "2026-09-01T08:00:00Z"
+	},
+	"status": "realizovan",
+	"datumKreiranja": {
+		"$date": "2026-09-09T18:59:33.064Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa17f0e58f4f2698a6de9fb"
+	},
+	"korisnikId": {
+		"$oid": "6aa17e6958f4f2698a6de9dc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa17c5458f4f2698a6de9b8"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"datumVreme": {
+		"$date": "2026-09-16T09:00:00Z"
+	},
+	"status": "otkazan",
+	"datumKreiranja": {
+		"$date": "2026-09-09T15:45:18.371Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeff"
+	},
+	"korisnikId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef3"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"datumVreme": {
+		"$date": "2026-09-12T17:12:53.65Z"
+	},
+	"status": "realizovan",
+	"datumKreiranja": {
+		"$date": "2026-09-09T18:59:33.064Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1af00"
+	},
+	"korisnikId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefd"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefa"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"datumVreme": {
+		"$date": "2026-09-17T07:00:00Z"
+	},
+	"predlozenoDatumVreme": {
+		"$date": "2026-09-17T07:30:00Z"
+	},
+	"status": "predlozen_novi",
+	"datumKreiranja": {
+		"$date": "2026-09-09T18:59:33.064Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1af01"
+	},
+	"korisnikId": {
+		"$oid": "6aa17e6958f4f2698a6de9dc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef0"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"datumVreme": {
+		"$date": "2026-09-14T08:00:00Z"
+	},
+	"status": "odbijen",
+	"datumKreiranja": {
+		"$date": "2026-09-09T18:59:33.064Z"
+	},
+	"napomenaAzila": "Azil trenutno ne prima nove posete za ovu životinju zbog zdravstvene provere."
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f447"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f442"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f438"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"datumVreme": {
+		"$date": "2026-09-21T08:00:00Z"
+	},
+	"status": "na_cekanju",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f448"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f443"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f43e"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"datumVreme": {
+		"$date": "2026-08-25T09:00:00Z"
+	},
+	"status": "realizovan",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f449"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f444"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f43f"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"datumVreme": {
+		"$date": "2026-09-23T07:30:00Z"
+	},
+	"status": "odobren",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f44a"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f445"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f440"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"datumVreme": {
+		"$date": "2026-09-25T12:00:00Z"
+	},
+	"predlozenoDatumVreme": {
+		"$date": "2026-09-25T12:30:00Z"
+	},
+	"status": "predlozen_novi",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f44b"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f446"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f43b"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"datumVreme": {
+		"$date": "2026-09-24T09:00:00Z"
+	},
+	"status": "na_cekanju",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f44c"
+	},
+	"korisnikId": {
+		"$oid": "6aa17e6958f4f2698a6de9dc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f43c"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"datumVreme": {
+		"$date": "2026-09-20T07:00:00Z"
+	},
+	"status": "otkazan",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f44d"
+	},
+	"korisnikId": {
+		"$oid": "6aa17f2e58f4f2698a6de9fe"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f439"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"datumVreme": {
+		"$date": "2026-09-05T13:00:00Z"
+	},
+	"status": "realizovan",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f44e"
+	},
+	"korisnikId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f43a"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"datumVreme": {
+		"$date": "2026-09-18T08:00:00Z"
+	},
+	"status": "otkazan",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f44f"
+	},
+	"korisnikId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefd"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f43d"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"datumVreme": {
+		"$date": "2026-09-19T06:00:00Z"
+	},
+	"status": "odbijen",
+	"datumKreiranja": {
+		"$date": "2026-09-11T10:32:02.855Z"
+	},
+	"napomenaAzila": "Naveli ste da nemate iskustva sa velikim rasama, a Leo zahteva iskusnog vlasnika."
+},
+{
+	"_id": {
+		"$oid": "6aa550ee93465ef1f093d5b9"
+	},
+	"korisnikId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefd"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef8"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"datumVreme": {
+		"$date": "2026-08-20T10:00:00Z"
+	},
+	"status": "realizovan",
+	"datumKreiranja": {
+		"$date": "2026-09-12T13:17:34.042Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa59e39a4d16c48bdfd4f88"
+	},
+	"korisnikId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef5"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"datumVreme": {
+		"$date": "2026-09-12T18:32:21.537Z"
+	},
+	"status": "realizovan",
+	"datumKreiranja": {
+		"$date": "2026-09-12T18:47:21.537Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa5bdc7393d483757a96120"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f442"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f440"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"datumVreme": {
+		"$date": "2026-09-16T07:30:00Z"
+	},
+	"status": "na_cekanju",
+	"datumKreiranja": {
+		"$date": "2026-09-12T21:01:59.443Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6aa5bdd5393d483757a9613e"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f442"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f441"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"datumVreme": {
+		"$date": "2026-09-17T07:30:00Z"
+	},
+	"status": "na_cekanju",
+	"datumKreiranja": {
+		"$date": "2026-09-12T21:02:13.716Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6aa5bfc188ae5ceb2a7157c5"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f442"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f43b"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"datumVreme": {
+		"$date": "2026-09-18T08:45:00Z"
+	},
+	"status": "na_cekanju",
+	"datumKreiranja": {
+		"$date": "2026-09-12T21:10:25.71Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6aa5c854fffc82af72d95152"
+	},
+	"korisnikId": {
+		"$oid": "6aa17e6958f4f2698a6de9dc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef1"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"datumVreme": {
+		"$date": "2026-09-17T07:00:00Z"
+	},
+	"status": "otkazan",
+	"datumKreiranja": {
+		"$date": "2026-09-12T21:47:00.179Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6aa5c8b5fffc82af72d95193"
+	},
+	"korisnikId": {
+		"$oid": "6aa17e6958f4f2698a6de9dc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef1"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"datumVreme": {
+		"$date": "2026-09-21T07:00:00Z"
+	},
+	"status": "odbijen",
+	"datumKreiranja": {
+		"$date": "2026-09-12T21:48:37.11Z"
+	},
+	"__v": 0,
+	"napomenaAzila": "Trenutno ne primamo posete zbog karantina."
+},
+{
+	"_id": {
+		"$oid": "6aa5cff32c51f618f8f3610c"
+	},
+	"korisnikId": {
+		"$oid": "6aa17e6958f4f2698a6de9dc"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef4"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"datumVreme": {
+		"$date": "2026-09-21T08:00:00Z"
+	},
+	"status": "otkazan",
+	"datumKreiranja": {
+		"$date": "2026-09-12T22:19:31.441Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6aa5d1752c51f618f8f36193"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f446"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeef"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"datumVreme": {
+		"$date": "2026-09-22T07:00:00Z"
+	},
+	"status": "odbijen",
+	"datumKreiranja": {
+		"$date": "2026-09-12T22:25:57.978Z"
+	},
+	"__v": 0,
+	"predlozenoDatumVreme": {
+		"$date": "2026-09-23T08:00:00Z"
+	}
+},
+{
+	"_id": {
+		"$oid": "6aa5d2e22c51f618f8f361e5"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f446"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa3d8a2c32d8b007348f440"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"datumVreme": {
+		"$date": "2026-09-08T09:00:00Z"
+	},
+	"status": "realizovan",
+	"datumKreiranja": {
+		"$date": "2026-09-12T22:32:02.207Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6aa5d40a2c51f618f8f36282"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f444"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefb"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"datumVreme": {
+		"$date": "2026-09-14T06:00:00Z"
+	},
+	"status": "otkazan",
+	"datumKreiranja": {
+		"$date": "2026-09-12T22:36:58.452Z"
+	},
+	"__v": 0,
+	"napomenaAzila": "neki razlog"
+},
+{
+	"_id": {
+		"$oid": "6aa5d4932c51f618f8f362c8"
+	},
+	"korisnikId": {
+		"$oid": "6aa3d8a2c32d8b007348f444"
+	},
+	"zivotinjaId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefb"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"datumVreme": {
+		"$date": "2026-09-14T06:30:00Z"
+	},
+	"status": "odbijen",
+	"datumKreiranja": {
+		"$date": "2026-09-12T22:39:15.713Z"
+	},
+	"__v": 0,
+	"napomenaAzila": "neee"
+}]
+

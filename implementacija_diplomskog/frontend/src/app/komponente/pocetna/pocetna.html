@@ -1,0 +1,46 @@
+<section class="hero">
+  <div class="kontejner hero-sadrzaj">
+    <div class="hero-tekst">
+      <h1>{{ 'POCETNA.NASLOV' | translate }}</h1>
+      <p class="hero-podnaslov">{{ 'POCETNA.PODNASLOV' | translate }}</p>
+      <p class="hero-opis">{{ 'POCETNA.OPIS' | translate }}</p>
+
+      <div class="hero-dugmad">
+        <a routerLink="/pretraga" class="dugme dugme-primarno">{{ 'POCETNA.DUGME_PRETRAZI' | translate }}</a>
+        @if (!auth.jeUlogovan()) {
+          <a routerLink="/registracija-azil" class="dugme dugme-sekundarno">{{ 'POCETNA.DUGME_AZIL' | translate }}</a>
+        }
+      </div>
+
+      <div class="hero-statistika">
+        <div>
+          <strong>{{ dostupne }}</strong>
+          <span>{{ 'POCETNA.STAT_DOSTUPNE' | translate }}</span>
+        </div>
+        <div>
+          <strong>{{ udomljene }}</strong>
+          <span>{{ 'POCETNA.STAT_UDOMLJENE' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+@if (izdvojene.length > 0) {
+  <section class="kontejner izdvojene-sekcija">
+    <h2>{{ 'POCETNA.IZDVOJENE_NASLOV' | translate }}</h2>
+
+    <div class="mreza-kartica">
+      @for (z of izdvojene; track z._id) {
+        <a class="karta zivotinja-kartica" [routerLink]="['/zivotinja', z._id]">
+          <img [src]="slika(z)" [alt]="z.naziv">
+          <div class="zivotinja-info">
+            <h3>{{ z.naziv }}</h3>
+            <p>{{ z.rasa | prevediRasu }} · {{ z.starostMeseci | starost }}</p>
+            <p class="zivotinja-lokacija">📍 {{ z.azilId?.lokacija }}</p>
+          </div>
+        </a>
+      }
+    </div>
+  </section>
+}

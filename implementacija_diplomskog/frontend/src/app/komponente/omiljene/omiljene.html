@@ -1,0 +1,26 @@
+<div class="kontejner">
+  <h2>{{ 'NAV.OMILJENE' | translate }}</h2>
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else if (omiljene.length == 0) {
+    <p class="poruka poruka-greska">{{ 'COMMON.NEMA_PODATAKA' | translate }}</p>
+  } @else {
+    <div class="mreza-kartica">
+      @for (z of omiljene; track z._id) {
+        <div class="karta zivotinja-kartica">
+          <a [routerLink]="['/zivotinja', z._id]">
+            <img [src]="slika(z)" [alt]="z.naziv">
+            <div class="zivotinja-info">
+              <h3>{{ z.naziv }}</h3>
+              <p>{{ z.rasa | prevediRasu }}</p>
+            </div>
+          </a>
+          <button class="dugme dugme-opasnost dugme-malo" style="margin: 0 14px 14px 14px;" (click)="ukloni(z._id)">
+            {{ 'ZIVOTINJA.UKLONI_OMILJENE' | translate }}
+          </button>
+        </div>
+      }
+    </div>
+  }
+</div>

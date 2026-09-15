@@ -1,0 +1,116 @@
+<div class="kontejner">
+  <div class="forma">
+  <h2>{{ 'NAV.PROFIL' | translate }}</h2>
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else {
+    <form #f="ngForm" (ngSubmit)="sacuvaj()" class="karta">
+      <div class="polje">
+        <label>{{ 'COMMON.IME' | translate }} *</label>
+        <input type="text" [(ngModel)]="ime" name="ime" required #imePolje="ngModel">
+        @if (imePolje.invalid && imePolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'COMMON.PREZIME' | translate }} *</label>
+        <input type="text" [(ngModel)]="prezime" name="prezime" required #prezimePolje="ngModel">
+        @if (prezimePolje.invalid && prezimePolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'COMMON.EMAIL' | translate }} *</label>
+        <input type="email" [(ngModel)]="email" name="email" required email #emailPolje="ngModel">
+        @if (emailPolje.invalid && emailPolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.EMAIL_NEISPRAVAN' | translate }}</span>
+        }
+      </div>
+
+      <h3>{{ 'FORMULAR.NASLOV' | translate }}</h3>
+
+      <div class="polje">
+        <label>{{ 'FORMULAR.TIP_STAMBENOG' | translate }}</label>
+        <input type="text" [(ngModel)]="formular.tipStambenogProstora" name="tipStambenog" [placeholder]="'FORMULAR.TIP_STAMBENOG_PRIMER' | translate">
+      </div>
+
+      <div class="polje">
+        <label>{{ 'FORMULAR.IMA_DRUGE_ZIVOTINJE' | translate }}</label>
+        <select [(ngModel)]="formular.imaDrugeZivotinje" name="imaDruge">
+          <option [ngValue]="false">{{ 'COMMON.NE' | translate }}</option>
+          <option [ngValue]="true">{{ 'COMMON.DA' | translate }}</option>
+        </select>
+      </div>
+
+      @if (formular.imaDrugeZivotinje) {
+        <div class="polje">
+          <label>{{ 'FORMULAR.BROJ_DRUGIH_ZIVOTINJA' | translate }}</label>
+          <input type="number" min="1" [(ngModel)]="formular.brojDrugihZivotinja" name="brojDrugih">
+        </div>
+
+        <div class="polje">
+          <label>{{ 'FORMULAR.VRSTA_DRUGIH_ZIVOTINJA' | translate }}</label>
+          <input type="text" [(ngModel)]="formular.vrstaDrugihZivotinja" name="vrstaDrugih" [placeholder]="'FORMULAR.VRSTA_DRUGIH_ZIVOTINJA_PRIMER' | translate">
+        </div>
+      }
+
+      <div class="polje">
+        <label>{{ 'FORMULAR.ISKUSTVO' | translate }}</label>
+        <textarea rows="2" [(ngModel)]="formular.iskustvo" name="iskustvo"></textarea>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'FORMULAR.SVRHA' | translate }}</label>
+        <select [(ngModel)]="formular.svrhaUdomljavanja" name="svrha">
+          <option value="Kućni ljubimac">{{ 'FORMULAR.SVRHA_KUCNI_LJUBIMAC' | translate }}</option>
+          <option value="Drugo">{{ 'FORMULAR.SVRHA_DRUGO' | translate }}</option>
+        </select>
+        <span class="formular-napomena">{{ 'FORMULAR.SVRHA_NAPOMENA' | translate }}</span>
+      </div>
+
+      @if (formular.svrhaUdomljavanja == 'Drugo') {
+        <div class="polje">
+          <label>{{ 'FORMULAR.SVRHA_DRUGO_OPIS' | translate }}</label>
+          <input type="text" [(ngModel)]="formular.svrhaUdomljavanjaOpis" name="svrhaOpis">
+          <span class="formular-napomena">{{ 'FORMULAR.SVRHA_DRUGO_OPIS_NAPOMENA' | translate }}</span>
+        </div>
+      }
+
+      <div class="polje">
+        <label>{{ 'FORMULAR.OSTALO' | translate }}</label>
+        <textarea rows="2" [(ngModel)]="formular.ostaloRelevantno" name="ostalo"></textarea>
+        <span class="formular-napomena">{{ 'FORMULAR.OSTALO_NAPOMENA' | translate }}</span>
+      </div>
+
+      @if (poruka && !greska) {
+        <p class="poruka poruka-uspeh">
+          {{ 'COMMON.OK' | translate }}
+          @if (potrebnaPonovnaVerifikacija) {
+            - {{ 'AUTH.PONOVNA_VERIFIKACIJA_EMAILA' | translate }}
+          }
+        </p>
+      }
+      @if (poruka && greska) {
+        <p class="poruka poruka-greska">{{ poruka }}</p>
+      }
+
+      <button type="submit" class="dugme dugme-primarno" [disabled]="f.invalid">{{ 'COMMON.SACUVAJ' | translate }}</button>
+    </form>
+
+    <div class="karta" style="margin-top: 20px;">
+      @if (!potvrdaBrisanja) {
+        <button class="dugme dugme-opasnost" (click)="potvrdaBrisanja = true">{{ 'COMMON.OBRISI_NALOG' | translate }}</button>
+      } @else {
+        <p>{{ 'COMMON.POTVRDA_BRISANJA' | translate }}</p>
+        <div class="polje-red">
+          <button class="dugme dugme-opasnost" (click)="obrisiNalog()">{{ 'COMMON.DA' | translate }}</button>
+          <button class="dugme dugme-sekundarno" (click)="potvrdaBrisanja = false">{{ 'COMMON.NE' | translate }}</button>
+        </div>
+      }
+    </div>
+  }
+  </div>
+</div>

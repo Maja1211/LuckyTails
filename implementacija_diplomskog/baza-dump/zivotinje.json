@@ -1,0 +1,641 @@
+[{
+	"_id": {
+		"$oid": "6aa17c5458f4f2698a6de9b8"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Reks",
+	"vrsta": "pas",
+	"rasa": "Mešanac",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789200000000_2_reks.jpg"
+	],
+	"opisKaraktera": "Veoma druželjubiv i energičan, voli decu i druge pse, uči brzo nove komande.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "Redovno vakcinisan, bez zdravstvenih problema.",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T15:33:40.748Z"
+	},
+	"__v": 0,
+	"starostMeseci": 36
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef0"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Sivka",
+	"vrsta": "macka",
+	"rasa": "Domaća dugodlaka",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_10_sivka.jpg"
+	],
+	"opisKaraktera": "Mirna i staložena mačka, uživa u dremanju na suncu i tihom društvu.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "Ima blagu artrozu, potrebna mekana podloga za ležanje.",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 120
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef1"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Vuk",
+	"vrsta": "pas",
+	"rasa": "Nemački ovčar mešanac",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789200000000_4_vuk.jpg",
+		"1789200200000_5_vuk2.jpg",
+		"1789200200000_6_vuk3.jpg"
+	],
+	"opisKaraktera": "Pribran i odan, dobro reaguje na osnovnu obuku, obožava duge šetnje.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 60
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef2"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Mrvica",
+	"vrsta": "macka",
+	"rasa": "Domaća kratkodlaka",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_8_mrvica.jpg",
+		"1789200100000_1_mrvica2.jpg",
+		"1789200100000_2_mrvica3.jpg"
+	],
+	"opisKaraktera": "Znatiželjna i puna energije, voli da se igra sa svime što se kotrlja.",
+	"sterilisan": false,
+	"vakcinisan": false,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 12
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef4"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"naziv": "Crnko",
+	"vrsta": "macka",
+	"rasa": "Domaća kratkodlaka",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789143725000_6_crnko.jpg"
+	],
+	"opisKaraktera": "Nestašno i umiljato mladunče, brzo se vezuje za ljude.",
+	"sterilisan": false,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 12
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef3"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"naziv": "Luna",
+	"vrsta": "pas",
+	"rasa": "Haski mešanac",
+	"pol": "zenka",
+	"fotografije": [
+		"1789143725000_5_luna.jpg",
+		"1789200200000_7_luna2.jpg"
+	],
+	"opisKaraktera": "Puna energije, voli duge trke i hladnije vreme, potrebna joj je aktivna porodica.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 48
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeef"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Zlata",
+	"vrsta": "pas",
+	"rasa": "Labrador mešanac",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_5_zlata.jpg"
+	],
+	"opisKaraktera": "Vragolasta i radoznala psica, voli da nosi loptice i brzo uči nova pravila.",
+	"sterilisan": false,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 3
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef5"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"naziv": "Bata",
+	"vrsta": "pas",
+	"rasa": "Bigl mešanac",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789143725000_1_bata.jpg"
+	],
+	"opisKaraktera": "Miran stariji pas, voli kratke šetnje i mnogo mira.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "Delimično oštećen sluh na jedno uvo, inače zdrav.",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 108
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef7"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"naziv": "Keksa",
+	"vrsta": "pas",
+	"rasa": "Mešanac srednje veličine",
+	"pol": "zenka",
+	"fotografije": [
+		"1789143725000_8_keksa.jpg"
+	],
+	"opisKaraktera": "Plaha ali radoznala psica, potrebno joj je strpljenje i nežan pristup.",
+	"sterilisan": false,
+	"vakcinisan": false,
+	"zdravstveneInfo": "",
+	"statusObjave": "odbijena",
+	"razlogOdbijanja": "Fotografija je nejasna - dodajte kvalitetniju sliku pre ponovnog slanja na moderaciju.",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 4
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef8"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"naziv": "Zlatko",
+	"vrsta": "pas",
+	"rasa": "Zlatni retriver mešanac",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789200000000_6_zlatko.jpg"
+	],
+	"opisKaraktera": "Nežan i strpljiv, odličan sa decom, voli vodu i aportiranje.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 72
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f43f"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"naziv": "Perla",
+	"vrsta": "macka",
+	"rasa": "Domaća dugodlaka",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_9_perla.jpg",
+		"1789200200000_8_perla2.jpg",
+		"1789200200000_9_perla3.jpg"
+	],
+	"opisKaraktera": "Dostojanstvena i čista, zahteva redovno češljanje ali uzvraća mnogo naklonosti.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 36
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f440"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"naziv": "Nina",
+	"vrsta": "pas",
+	"rasa": "Jazavičar mešanac",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_1_nina.jpg",
+		"1789200100000_4_nina2.jpg"
+	],
+	"opisKaraktera": "Uporna i radoznala, kao i svaki pravi jazavičar voli da kopa i istražuje.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "rezervisana",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 60
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f441"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"naziv": "Kiki",
+	"vrsta": "macka",
+	"rasa": "Domaća kratkodlaka",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_15_kiki.jpg"
+	],
+	"opisKaraktera": "Vesela i razigrana mlada mačka, obožava lovicu i penjanje.",
+	"sterilisan": false,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 12
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f43c"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"naziv": "Tara",
+	"vrsta": "macka",
+	"rasa": "Sijamska mešanac",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_12_tara.jpg",
+		"1789200200000_1_tara2.jpg",
+		"1789200200000_2_tara3.jpg"
+	],
+	"opisKaraktera": "Elegantna i glasna, voli da prati ukućane iz sobe u sobu.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 24
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f43d"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"naziv": "Leo",
+	"vrsta": "pas",
+	"rasa": "Mešanac velike rase",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789143725000_9_leo.jpg"
+	],
+	"opisKaraktera": "Miran i dostojanstven stariji pas, uživa u kratkim šetnjama i mirnom domu.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "Blaga ukočenost zadnjih nogu, nema potrebu za terapijom.",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 84
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f43a"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"naziv": "Coko",
+	"vrsta": "macka",
+	"rasa": "Domaća kratkodlaka",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789143725000_4_coko.jpg"
+	],
+	"opisKaraktera": "Tih i pomalo stidljiv, ali vremenom postaje veoma privržen.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 24
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f43b"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"naziv": "Rio",
+	"vrsta": "pas",
+	"rasa": "Mešanac srednje veličine",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789200000000_16_rio2.jpg",
+		"1789200200000_3_rio2.jpg",
+		"1789200200000_4_rio3.jpg"
+	],
+	"opisKaraktera": "Druželjubiv i miran, dobro se slaže i sa decom i sa drugim psima.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 36
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f43e"
+	},
+	"azilId": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"naziv": "Bruno",
+	"vrsta": "pas",
+	"rasa": "Labrador mešanac",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789143725000_2_bruno.jpg"
+	],
+	"opisKaraktera": "Energičan i poslušan, uživa u igri loptom i dugim trčanjima.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 48
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefa"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"naziv": "Buba",
+	"vrsta": "pas",
+	"rasa": "Mešanac malog rasta",
+	"pol": "zenka",
+	"fotografije": [
+		"1789143725000_3_buba.jpg"
+	],
+	"opisKaraktera": "Vesela i energična, odlično se slaže sa drugim psima.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 24
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef9"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"naziv": "Šarko",
+	"vrsta": "macka",
+	"rasa": "Domaća kratkodlaka",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789200000000_14_sarko.jpg"
+	],
+	"opisKaraktera": "Društven i ljubak, voli da bude u centru pažnje.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "udomljena",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 48
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefb"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"naziv": "Maza",
+	"vrsta": "macka",
+	"rasa": "Domaća kratkodlaka",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_7_maza.jpg",
+		"1789200100000_3_maza2.jpg"
+	],
+	"opisKaraktera": "Radoznalo mladunče, još uči da veruje ljudima ali brzo napreduje.",
+	"sterilisan": false,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 3
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f438"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Tigar",
+	"vrsta": "macka",
+	"rasa": "Domaća kratkodlaka",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789200000000_13_tigar.jpg"
+	],
+	"opisKaraktera": "Samostalan i radoznao, voli da istražuje dvorište i posmatra pticama.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 48
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f439"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Dunja",
+	"vrsta": "pas",
+	"rasa": "Mešanac",
+	"pol": "zenka",
+	"fotografije": [
+		"1789143725000_7_dunja.jpg"
+	],
+	"opisKaraktera": "Radoznalo i nežno štene, brzo se privikava na nove ljude.",
+	"sterilisan": false,
+	"vakcinisan": false,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-11T10:32:02.827Z"
+	},
+	"starostMeseci": 5
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aef6"
+	},
+	"azilId": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"naziv": "Snežana",
+	"vrsta": "macka",
+	"rasa": "Domaća dugodlaka",
+	"pol": "zenka",
+	"fotografije": [
+		"1789200000000_11_snezana.jpg"
+	],
+	"opisKaraktera": "Elegantna i nezavisna, uživa u češljanju i mirnom okruženju.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "odobrena",
+	"statusZivotinje": "rezervisana",
+	"datumObjave": {
+		"$date": "2026-09-09T18:59:33.058Z"
+	},
+	"starostMeseci": 36
+},
+{
+	"_id": {
+		"$oid": "6aa6a7365a65bf027ba045df"
+	},
+	"azilId": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Toma",
+	"vrsta": "pas",
+	"rasa": "Mešanac srednje veličine",
+	"pol": "muzjak",
+	"fotografije": [
+		"1789300000000_40_toma.jpg"
+	],
+	"opisKaraktera": "Vedar i druželjubiv pas, brzo se vezuje za ljude i voli duge šetnje.",
+	"sterilisan": true,
+	"vakcinisan": true,
+	"zdravstveneInfo": "",
+	"statusObjave": "na_cekanju",
+	"statusZivotinje": "dostupna",
+	"datumObjave": {
+		"$date": "2026-09-13T13:37:58.333Z"
+	},
+	"starostMeseci": 18
+}]
+

@@ -1,0 +1,27 @@
+.zivotinja-kartica {
+    padding: 0;
+    overflow: hidden;
+}
+
+.zivotinja-kartica a {
+    color: inherit;
+    display: block;
+}
+
+.zivotinja-kartica a:hover {
+    text-decoration: none;
+}
+
+.zivotinja-kartica img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    padding: 14px;
+    background: var(--boja-pozadina);
+    box-sizing: border-box;
+}
+
+.zivotinja-info {
+    padding: 14px 16px 6px 16px;
+}

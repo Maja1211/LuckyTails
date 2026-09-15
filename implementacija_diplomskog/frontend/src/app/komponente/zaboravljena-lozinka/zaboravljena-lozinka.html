@@ -1,0 +1,21 @@
+<div class="kontejner">
+  <div class="karta forma">
+    <h2>{{ 'AUTH.ZABORAVLJENA_LOZINKA_NASLOV' | translate }}</h2>
+
+    @if (poslato) {
+      <p class="poruka poruka-uspeh">{{ 'AUTH.LINK_ZA_RESET_POSLAT' | translate }}</p>
+      <a routerLink="/login" class="dugme dugme-primarno">{{ 'AUTH.PRIJAVI_SE' | translate }}</a>
+    } @else {
+      <p>{{ 'AUTH.ZABORAVLJENA_LOZINKA_OPIS' | translate }}</p>
+
+      <div class="polje">
+        <label>{{ 'COMMON.EMAIL' | translate }}</label>
+        <input type="email" [(ngModel)]="email" name="email">
+      </div>
+
+      <button class="dugme dugme-primarno" [disabled]="!email" (click)="posalji()">
+        {{ 'AUTH.POSALJI_LINK' | translate }}
+      </button>
+    }
+  </div>
+</div>

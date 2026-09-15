@@ -1,0 +1,29 @@
+<div class="kontejner">
+  <div class="karta forma">
+    <h2>{{ 'AUTH.VERIFIKACIJA_NASLOV' | translate }}</h2>
+
+    @if (ucitavanje) {
+      <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+    } @else if (uspesno) {
+      <p class="poruka poruka-uspeh">{{ 'AUTH.VERIFIKACIJA_USPESNA' | translate }}</p>
+      <a routerLink="/login" class="dugme dugme-primarno">{{ 'AUTH.PRIJAVI_SE' | translate }}</a>
+    } @else {
+      <p class="poruka poruka-greska">{{ 'AUTH.VERIFIKACIJA_NEUSPESNA' | translate }}</p>
+
+      @if (ponovnoSlanjePoslato) {
+        <p class="poruka poruka-uspeh">{{ 'AUTH.PONOVNO_SLANJE_POSLATO' | translate }}</p>
+      } @else {
+        <p>{{ 'AUTH.PONOVNO_SLANJE_OPIS' | translate }}</p>
+
+        <div class="polje">
+          <label>{{ 'COMMON.EMAIL' | translate }}</label>
+          <input type="email" [(ngModel)]="emailPonovnoSlanje" name="emailPonovnoSlanje">
+        </div>
+
+        <button class="dugme dugme-primarno" [disabled]="!emailPonovnoSlanje" (click)="posaljiPonovo()">
+          {{ 'AUTH.PONOVO_POSALJI' | translate }}
+        </button>
+      }
+    }
+  </div>
+</div>

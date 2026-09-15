@@ -1,0 +1,18 @@
+<div class="kontejner">
+  <h2>{{ 'NAV.AZILI' | translate }}</h2>
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else if (azili.length == 0) {
+    <p class="poruka poruka-greska">{{ 'COMMON.NEMA_PODATAKA' | translate }}</p>
+  } @else {
+    <div class="mreza-kartica">
+      @for (a of azili; track a._id) {
+        <a class="karta azil-kartica" [routerLink]="['/azil', a._id]">
+          <h3>{{ a.naziv }}</h3>
+          <p>📍 {{ a.lokacija }}</p>
+        </a>
+      }
+    </div>
+  }
+</div>

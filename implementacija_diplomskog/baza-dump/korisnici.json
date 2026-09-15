@@ -1,0 +1,254 @@
+[{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f443"
+	},
+	"ime": "Nikola",
+	"prezime": "Đorđević",
+	"email": "nikola.djordjevic@example.com",
+	"lozinka": "$2b$10$DL2AnmBBGhPa.qR0SgeRNOUYTteLQEz2KVrL86i6w8HVXVv48RYjO",
+	"emailPotvrdjen": true,
+	"formular": {
+		"tipStambenogProstora": "Kuća sa ograđenim dvorištem",
+		"imaDrugeZivotinje": true,
+		"iskustvo": "Odrastao sam uz pse, trenutno imam jednog starijeg psa.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"ostaloRelevantno": "Imam dvorište pogodno za veće pse.",
+		"brojDrugihZivotinja": 1,
+		"vrstaDrugihZivotinja": "mačka"
+	},
+	"omiljene": [
+		{
+			"$oid": "6aa3d8a2c32d8b007348f43e"
+		}
+	],
+	"datumRegistracije": {
+		"$date": "2026-09-11T10:32:02.842Z"
+	},
+	"korisnickoIme": "nikola.djordjevic"
+},
+{
+	"_id": {
+		"$oid": "6aa17e6958f4f2698a6de9dc"
+	},
+	"ime": "Petar",
+	"prezime": "Petrovic",
+	"email": "petar.petrovic@example.com",
+	"lozinka": "$2b$10$UJYOQqS8ipVVB5lL3FVvjuutVuKg3h5IayDKX88uZEqRP6i3/R342",
+	"emailPotvrdjen": true,
+	"omiljene": [
+		{
+			"$oid": "6aa17c5458f4f2698a6de9b8"
+		},
+		{
+			"$oid": "6aa1ac95e9a43f8db3d1aef8"
+		},
+		{
+			"$oid": "6aa1ac95e9a43f8db3d1aefa"
+		},
+		{
+			"$oid": "6aa1ac95e9a43f8db3d1aef1"
+		}
+	],
+	"datumRegistracije": {
+		"$date": "2026-09-09T15:42:33.33Z"
+	},
+	"__v": 0,
+	"formular": {
+		"tipStambenogProstora": "Stan sa terasom, 55m2",
+		"imaDrugeZivotinje": true,
+		"brojDrugihZivotinja": 2,
+		"vrstaDrugihZivotinja": "dve macke domace kratkodlake",
+		"iskustvo": "Imali smo psa u detinjstvu 10 godina.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"svrhaUdomljavanjaOpis": "",
+		"ostaloRelevantno": "Radim od kuće, imam dosta vremena za šetnje."
+	},
+	"korisnickoIme": "petar.petrovic"
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefd"
+	},
+	"ime": "Ana",
+	"prezime": "Ilić",
+	"email": "ana.ilic@example.com",
+	"lozinka": "$2b$10$DEvbKlqMDfz2kFTzusUmYu/xR4m2RZLFPlPbpHa.CKhE0W4Uk/946",
+	"emailPotvrdjen": true,
+	"formular": {
+		"tipStambenogProstora": "Stan",
+		"imaDrugeZivotinje": true,
+		"iskustvo": "Nemam prethodno iskustvo, ali sam se dobro informisala.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"ostaloRelevantno": "",
+		"brojDrugihZivotinja": 1,
+		"svrhaUdomljavanjaOpis": "",
+		"vrstaDrugihZivotinja": "jedna macka"
+	},
+	"omiljene": [
+		{
+			"$oid": "6aa3d8a2c32d8b007348f43c"
+		}
+	],
+	"datumRegistracije": {
+		"$date": "2026-09-09T18:59:33.061Z"
+	},
+	"korisnickoIme": "ana.ilic"
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aefc"
+	},
+	"ime": "Marko",
+	"prezime": "Nikolić",
+	"email": "marko.nikolic@example.com",
+	"lozinka": "$2b$10$DEvbKlqMDfz2kFTzusUmYu/xR4m2RZLFPlPbpHa.CKhE0W4Uk/946",
+	"emailPotvrdjen": true,
+	"formular": {
+		"tipStambenogProstora": "Kuća sa dvorištem, ograđeno",
+		"imaDrugeZivotinje": true,
+		"iskustvo": "Imam jednog psa već 6 godina, upoznat sam sa osnovnom obukom.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"ostaloRelevantno": "Radim od kuće, mogu da posvetim dosta vremena.",
+		"brojDrugihZivotinja": 1,
+		"vrstaDrugihZivotinja": "pas"
+	},
+	"omiljene": [
+		{
+			"$oid": "6aa1ac95e9a43f8db3d1aef5"
+		}
+	],
+	"datumRegistracije": {
+		"$date": "2026-09-09T18:59:33.061Z"
+	},
+	"korisnickoIme": "marko.nikolic"
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f442"
+	},
+	"ime": "Milica",
+	"prezime": "Stanković",
+	"email": "milica.stankovic@example.com",
+	"lozinka": "$2b$10$3DuF9yYNi8zWvJCXuuHLX.himNUIreYHgNB.K9wlJ2PCfO5phn5Ae",
+	"emailPotvrdjen": true,
+	"formular": {
+		"tipStambenogProstora": "Stan sa terasom, 55m2",
+		"imaDrugeZivotinje": false,
+		"iskustvo": "Nemam prethodno iskustvo sa životinjama.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"ostaloRelevantno": ""
+	},
+	"omiljene": [
+		{
+			"$oid": "6aa3d8a2c32d8b007348f438"
+		},
+		{
+			"$oid": "6aa3d8a2c32d8b007348f43f"
+		}
+	],
+	"datumRegistracije": {
+		"$date": "2026-09-11T10:32:02.842Z"
+	},
+	"korisnickoIme": "milica.stankovic"
+},
+{
+	"_id": {
+		"$oid": "6aa17f2e58f4f2698a6de9fe"
+	},
+	"ime": "Jovana",
+	"prezime": "Jovanovic",
+	"email": "jovana.jovanovic@example.com",
+	"lozinka": "$2b$10$ssgUvi.uZc2Ok0D0Gdpu.enFGEiUwkuqquOGgRaDaEvRslsF4EJC2",
+	"emailPotvrdjen": true,
+	"omiljene": [
+		{
+			"$oid": "6aa1ac95e9a43f8db3d1aef3"
+		}
+	],
+	"datumRegistracije": {
+		"$date": "2026-09-09T15:45:50.359Z"
+	},
+	"__v": 0,
+	"formular": {
+		"tipStambenogProstora": "Kuća sa dvorištem",
+		"imaDrugeZivotinje": false,
+		"iskustvo": "Prvi put udomljavam životinju.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"ostaloRelevantno": ""
+	},
+	"korisnickoIme": "jovana.jovanovic"
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f444"
+	},
+	"ime": "Jelena",
+	"prezime": "Radić",
+	"email": "jelena.radic@example.com",
+	"lozinka": "$2b$10$3DuF9yYNi8zWvJCXuuHLX.himNUIreYHgNB.K9wlJ2PCfO5phn5Ae",
+	"emailPotvrdjen": true,
+	"formular": {
+		"tipStambenogProstora": "Stan, 60m2, bez terase",
+		"imaDrugeZivotinje": false,
+		"iskustvo": "Imala sam mačku u porodičnom domu tokom detinjstva.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"ostaloRelevantno": ""
+	},
+	"omiljene": [],
+	"datumRegistracije": {
+		"$date": "2026-09-11T10:32:02.842Z"
+	},
+	"korisnickoIme": "jelena.radic"
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f446"
+	},
+	"ime": "Tamara",
+	"prezime": "Jovanović",
+	"email": "tamara.jovanovic@example.com",
+	"lozinka": "$2b$10$3DuF9yYNi8zWvJCXuuHLX.himNUIreYHgNB.K9wlJ2PCfO5phn5Ae",
+	"emailPotvrdjen": true,
+	"formular": {
+		"tipStambenogProstora": "Stan, 45m2",
+		"imaDrugeZivotinje": false,
+		"iskustvo": "Nemam iskustva, ali sam se dobro pripremila i pročitala dosta o nezi.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"ostaloRelevantno": ""
+	},
+	"omiljene": [],
+	"datumRegistracije": {
+		"$date": "2026-09-11T10:32:02.842Z"
+	},
+	"korisnickoIme": "tamara.jovanovic"
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f445"
+	},
+	"ime": "Stefan",
+	"prezime": "Pavlović",
+	"email": "stefan.pavlovic@example.com",
+	"lozinka": "$2b$10$3DuF9yYNi8zWvJCXuuHLX.himNUIreYHgNB.K9wlJ2PCfO5phn5Ae",
+	"emailPotvrdjen": true,
+	"formular": {
+		"tipStambenogProstora": "Kuća sa dvorištem",
+		"imaDrugeZivotinje": false,
+		"iskustvo": "Radio sam kao volonter u azilu tokom studija.",
+		"svrhaUdomljavanja": "Kućni ljubimac",
+		"ostaloRelevantno": "Radim od kuće, mogu posvetiti dosta vremena adaptaciji."
+	},
+	"omiljene": [
+		{
+			"$oid": "6aa3d8a2c32d8b007348f440"
+		},
+		{
+			"$oid": "6aa3d8a2c32d8b007348f43d"
+		}
+	],
+	"datumRegistracije": {
+		"$date": "2026-09-11T10:32:02.842Z"
+	},
+	"korisnickoIme": "stefan.pavlovic"
+}]
+

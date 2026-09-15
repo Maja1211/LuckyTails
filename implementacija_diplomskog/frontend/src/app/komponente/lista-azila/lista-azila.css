@@ -1,0 +1,19 @@
+.azil-kartica {
+    color: inherit;
+    display: block;
+}
+
+.azil-kartica:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    transition: transform 0.15s ease;
+}
+
+.azil-kartica h3 {
+    color: var(--boja-primarna-tamna);
+}
+
+.azil-kartica p {
+    margin: 0;
+    color: var(--boja-tekst-slaba);
+}

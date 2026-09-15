@@ -1,0 +1,12 @@
+.oznaka {
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.termin-slika {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}

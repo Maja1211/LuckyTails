@@ -1,0 +1,168 @@
+<div class="kontejner">
+  <div class="forma">
+  <h2>{{ 'AZIL_PROFIL.NASLOV' | translate }}</h2>
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else {
+
+    @if (azil?.status == 'na_cekanju') {
+      <p class="poruka poruka-greska">{{ 'AZIL_PROFIL.STATUS_NA_CEKANJU' | translate }}</p>
+    }
+    @if (azil?.status == 'odbijen') {
+      <p class="poruka poruka-greska">{{ 'AZIL_PROFIL.STATUS_ODBIJEN' | translate }}: {{ azil?.razlogOdbijanja | prevediTekst }}</p>
+    }
+
+    @if (azil?.status == 'odobren') {
+      <a [routerLink]="['/azil', azil!._id]" class="dugme dugme-sekundarno dugme-malo" style="margin-bottom: 16px; display: inline-block;">{{ 'AZIL_PROFIL.POGLEDAJ_JAVNI_PROFIL' | translate }}</a>
+    }
+
+    <form #f="ngForm" (ngSubmit)="sacuvaj()" class="karta">
+      <div class="polje">
+        <label>{{ 'COMMON.NAZIV' | translate }} *</label>
+        <input type="text" [(ngModel)]="naziv" name="naziv" required #nazivPolje="ngModel">
+        @if (nazivPolje.invalid && nazivPolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'COMMON.EMAIL' | translate }} *</label>
+        <input type="email" [(ngModel)]="email" name="email" required email #emailPolje="ngModel">
+        @if (emailPolje.invalid && emailPolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.EMAIL_NEISPRAVAN' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'COMMON.TELEFON' | translate }} *</label>
+        <input type="text" [(ngModel)]="telefon" name="telefon" required pattern="\+?[\d\s\-/]{6,20}" #telefonPolje="ngModel">
+        @if (telefonPolje.invalid && telefonPolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.TELEFON_NEISPRAVAN' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'COMMON.ADRESA' | translate }} *</label>
+        <input type="text" [(ngModel)]="adresa" name="adresa" required #adresaPolje="ngModel">
+        @if (adresaPolje.invalid && adresaPolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'COMMON.LOKACIJA' | translate }} *</label>
+        <input type="text" [(ngModel)]="lokacija" name="lokacija" required #lokacijaPolje="ngModel">
+        @if (lokacijaPolje.invalid && lokacijaPolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'COMMON.OPIS' | translate }}</label>
+        <textarea rows="2" [(ngModel)]="opis" name="opis"></textarea>
+        <span class="formular-napomena">{{ 'AZIL_PROFIL.OPIS_NAPOMENA' | translate }}</span>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'AZIL_PROFIL.O_NAMA' | translate }}</label>
+        <textarea rows="3" [(ngModel)]="oNama" name="oNama"></textarea>
+        <span class="formular-napomena">{{ 'AZIL_PROFIL.O_NAMA_NAPOMENA' | translate }}</span>
+      </div>
+
+      <h3>{{ 'AZIL_PROFIL.NACIN_PODRSKE' | translate }}</h3>
+
+      <div class="polje polje-red">
+        <input type="checkbox" id="novcane" [(ngModel)]="nacinPodrske.novcaneDonacije" name="novcane">
+        <label for="novcane">{{ 'AZIL_PROFIL.NOVCANE_DONACIJE' | translate }}</label>
+      </div>
+
+      @if (nacinPodrske.novcaneDonacije) {
+        <div class="polje">
+          <label>{{ 'AZIL_PROFIL.BROJ_RACUNA' | translate }} *</label>
+          <input type="text" [(ngModel)]="nacinPodrske.brojRacuna" name="brojRacuna" required pattern="[0-9-]{10,30}" #brojRacunaPolje="ngModel">
+          @if (brojRacunaPolje.invalid && brojRacunaPolje.touched) {
+            <span class="greska-polja">{{ 'VALIDACIJA.BROJ_RACUNA_NEISPRAVAN' | translate }}</span>
+          }
+        </div>
+      }
+
+      <div class="polje polje-red">
+        <input type="checkbox" id="hrana" [(ngModel)]="nacinPodrske.donacijaHrane" name="hrana">
+        <label for="hrana">{{ 'AZIL_PROFIL.DONACIJA_HRANE' | translate }}</label>
+      </div>
+      <div class="polje polje-red">
+        <input type="checkbox" id="veterina" [(ngModel)]="nacinPodrske.veterinarskaPomoc" name="veterina">
+        <label for="veterina">{{ 'AZIL_PROFIL.VETERINARSKA_POMOC' | translate }}</label>
+      </div>
+      <div class="polje">
+        <label>{{ 'AZIL_PROFIL.OSTALI_NACINI' | translate }}</label>
+        <input type="text" [(ngModel)]="nacinPodrske.ostalo" name="ostaliNacini">
+      </div>
+
+      <h3>{{ 'AZIL_PROFIL.RADNO_VREME' | translate }}</h3>
+
+      @for (interval of radnoVreme; track $index) {
+        <div class="polje-red interval-red">
+          <select [(ngModel)]="interval.dan" [name]="'dan' + $index">
+            @for (dan of ('AZIL_PROFIL.DANI' | translate); track $index) {
+              <option [value]="$index">{{ dan }}</option>
+            }
+          </select>
+          <input type="time" [(ngModel)]="interval.odVremena" [name]="'od' + $index" required>
+          <span>-</span>
+          <input type="time" [(ngModel)]="interval.doVremena" [name]="'do' + $index" required>
+          <button type="button" class="dugme dugme-opasnost dugme-malo" (click)="ukloniInterval($index)">✕</button>
+        </div>
+      }
+
+      <button type="button" class="dugme dugme-sekundarno dugme-malo" (click)="dodajInterval()">{{ 'AZIL_PROFIL.DODAJ_INTERVAL' | translate }}</button>
+
+      <div class="polje" style="margin-top: 16px;">
+        <label>{{ 'AZIL_PROFIL.TRAJANJE_TERMINA' | translate }}</label>
+        <input type="number" min="10" max="480" step="5" required [(ngModel)]="trajanjeTermina" name="trajanjeTermina" #trajanjePolje="ngModel">
+        @if (trajanjePolje.invalid && trajanjePolje.touched) {
+          <span class="greska-polja">{{ 'VALIDACIJA.TRAJANJE_NEISPRAVNO' | translate }}</span>
+        }
+      </div>
+
+      @if (azil?.lat != null && azil?.lng != null) {
+        <div class="polje" style="margin-top: 16px;">
+          <label>{{ 'AZIL_PROFIL.LOKACIJA_NA_MAPI' | translate }}</label>
+          <app-mapa-lokacije [lat]="azil!.lat!" [lng]="azil!.lng!" [naziv]="naziv"></app-mapa-lokacije>
+          <span class="formular-napomena">{{ 'AZIL_PROFIL.LOKACIJA_NAPOMENA' | translate }}</span>
+        </div>
+      }
+
+      @if (poruka && !greska) {
+        <p class="poruka poruka-uspeh">
+          {{ 'COMMON.OK' | translate }}
+          @if (ponovoPoslatoNaModeraciju) {
+            - {{ 'AZIL_PROFIL.PONOVO_NA_MODERACIJI' | translate }}
+          }
+          @if (potrebnaPonovnaVerifikacija) {
+            - {{ 'AUTH.PONOVNA_VERIFIKACIJA_EMAILA' | translate }}
+          }
+        </p>
+      }
+      @if (poruka && greska) {
+        <p class="poruka poruka-greska">{{ poruka }}</p>
+      }
+
+      <button type="submit" class="dugme dugme-primarno" [disabled]="f.invalid">{{ 'COMMON.SACUVAJ' | translate }}</button>
+    </form>
+
+    <div class="karta" style="margin-top: 20px;">
+      @if (!potvrdaBrisanja) {
+        <button class="dugme dugme-opasnost" (click)="potvrdaBrisanja = true">{{ 'COMMON.OBRISI_NALOG' | translate }}</button>
+      } @else {
+        <p>{{ 'COMMON.POTVRDA_BRISANJA' | translate }}</p>
+        <div class="polje-red">
+          <button class="dugme dugme-opasnost" (click)="obrisiNalog()">{{ 'COMMON.DA' | translate }}</button>
+          <button class="dugme dugme-sekundarno" (click)="potvrdaBrisanja = false">{{ 'COMMON.NE' | translate }}</button>
+        </div>
+      }
+    </div>
+  }
+  </div>
+</div>

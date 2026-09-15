@@ -1,0 +1,24 @@
+<div class="kontejner">
+  <h2>{{ 'NAV.REGISTRACIJA' | translate }}</h2>
+  <p class="podnaslov">{{ 'AUTH.IZABERI_TIP_NALOGA' | translate }}</p>
+
+  <div class="izbor-mreza">
+    <a routerLink="/registracija-korisnik" class="karta izbor-kartica">
+      <span class="izbor-ikona">🐾</span>
+      <h3>{{ 'AUTH.ULOGA_KORISNIK' | translate }}</h3>
+      <p>{{ 'AUTH.OPIS_REGISTRACIJA_KORISNIK' | translate }}</p>
+      <span class="dugme dugme-primarno">{{ 'AUTH.REGISTRUJTE_SE_KORISNIK' | translate }}</span>
+    </a>
+
+    <a routerLink="/registracija-azil" class="karta izbor-kartica">
+      <span class="izbor-ikona">🏠</span>
+      <h3>{{ 'AUTH.ULOGA_AZIL' | translate }}</h3>
+      <p>{{ 'AUTH.OPIS_REGISTRACIJA_AZIL' | translate }}</p>
+      <span class="dugme dugme-primarno">{{ 'AUTH.REGISTRUJTE_SE_AZIL' | translate }}</span>
+    </a>
+  </div>
+
+  <p style="margin-top: 24px;">
+    {{ 'AUTH.VEC_IMATE_NALOG' | translate }} <a routerLink="/login">{{ 'AUTH.PRIJAVI_SE' | translate }}</a>
+  </p>
+</div>

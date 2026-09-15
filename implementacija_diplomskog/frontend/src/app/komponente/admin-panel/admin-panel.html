@@ -1,0 +1,130 @@
+<div class="kontejner">
+  <h2>{{ 'NAV.ADMIN_PANEL' | translate }}</h2>
+
+  @if (poruka) {
+    <p class="poruka poruka-greska">{{ poruka }}</p>
+  }
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else {
+
+    @if (statistika) {
+      <h3>{{ 'MODERATOR.STATISTIKA' | translate }}</h3>
+      <div class="statistika-mreza">
+        <div class="karta statistika-kartica">
+          <span class="statistika-broj">{{ statistika.azili.ukupno }}</span>
+          <span class="statistika-labela">{{ 'MODERATOR.STAT_AZILA_UKUPNO' | translate }}</span>
+          <span class="statistika-detalj">{{ 'MODERATOR.STAT_NA_CEKANJU' | translate }}: {{ statistika.azili.naCekanju }} · {{ 'MODERATOR.STAT_ODOBRENO' | translate }}: {{ statistika.azili.odobreni }} · {{ 'MODERATOR.STAT_ODBIJENO' | translate }}: {{ statistika.azili.odbijeni }}</span>
+        </div>
+        <div class="karta statistika-kartica">
+          <span class="statistika-broj">{{ statistika.zivotinje.ukupno }}</span>
+          <span class="statistika-labela">{{ 'MODERATOR.STAT_OBJAVA_UKUPNO' | translate }}</span>
+          <span class="statistika-detalj">{{ 'MODERATOR.STAT_NA_CEKANJU' | translate }}: {{ statistika.zivotinje.naCekanju }} · {{ 'MODERATOR.STAT_ODOBRENO' | translate }}: {{ statistika.zivotinje.odobrene }} · {{ 'MODERATOR.STAT_ODBIJENO' | translate }}: {{ statistika.zivotinje.odbijene }}</span>
+        </div>
+        <div class="karta statistika-kartica">
+          <span class="statistika-broj">{{ statistika.zivotinje.udomljene }}</span>
+          <span class="statistika-labela">{{ 'MODERATOR.STAT_UDOMLJENE' | translate }}</span>
+          <span class="statistika-detalj">{{ 'MODERATOR.STAT_DOSTUPNE' | translate }}: {{ statistika.zivotinje.dostupne }} · {{ 'MODERATOR.STAT_REZERVISANE' | translate }}: {{ statistika.zivotinje.rezervisane }}</span>
+        </div>
+        <div class="karta statistika-kartica">
+          <span class="statistika-broj">{{ statistika.korisnici.ukupno }}</span>
+          <span class="statistika-labela">{{ 'MODERATOR.STAT_KORISNIKA_UKUPNO' | translate }}</span>
+        </div>
+        <div class="karta statistika-kartica">
+          <span class="statistika-broj">{{ statistika.termini.realizovani }}</span>
+          <span class="statistika-labela">{{ 'MODERATOR.STAT_TERMINA_REALIZOVANO' | translate }}</span>
+          <span class="statistika-detalj">{{ 'MODERATOR.STAT_TERMINA_UKUPNO' | translate }}: {{ statistika.termini.ukupno }} · {{ 'MODERATOR.STAT_OTKAZANI' | translate }}: {{ statistika.termini.otkazani }}</span>
+        </div>
+        @if (statistika.prosecnaOcenaAzila != null) {
+          <div class="karta statistika-kartica">
+            <span class="statistika-broj">⭐ {{ statistika.prosecnaOcenaAzila }}</span>
+            <span class="statistika-labela">{{ 'MODERATOR.STAT_PROSECNA_OCENA' | translate }}</span>
+            <span class="statistika-detalj">{{ 'MODERATOR.STAT_BROJ_RECENZIJA' | translate }}: {{ statistika.brojRecenzija }}</span>
+          </div>
+        }
+      </div>
+    }
+
+    <h3>{{ 'MODERATOR.ZAHTEVI_AZILA' | translate }}</h3>
+
+    @if (zahteviAzila.length == 0) {
+      <p class="poruka poruka-uspeh">{{ 'MODERATOR.NEMA_ZAHTEVA' | translate }}</p>
+    } @else {
+      <div class="mreza-kartica" style="margin-bottom: 32px;">
+        @for (a of zahteviAzila; track a._id) {
+          <div class="karta">
+            <h4>{{ a.naziv }}</h4>
+            <p>📍 {{ a.lokacija }} - {{ a.adresa }}</p>
+            <p>✉️ {{ a.email }} · 📞 {{ a.telefon }}</p>
+            <p>{{ 'MODERATOR.KORISNICKO_IME_AZILA' | translate }}: {{ a.korisnickoIme }}</p>
+            @if (a.datumRegistracije) {
+              <p>{{ 'MODERATOR.ZAHTEV_PODNET' | translate }}: {{ a.datumRegistracije | date:'dd.MM.yyyy HH:mm' }}</p>
+            }
+            @if (a.opis) {
+              <p><strong>{{ 'COMMON.OPIS' | translate }}:</strong> {{ a.opis | prevediTekst }}</p>
+            }
+            @if (a.lat != null && a.lng != null) {
+              <app-mapa-lokacije [lat]="a.lat" [lng]="a.lng" [naziv]="a.naziv"></app-mapa-lokacije>
+            }
+
+            <div class="polje-red" style="margin-top: 16px;">
+              <button class="dugme dugme-primarno dugme-malo" (click)="odobriAzil(a._id)">{{ 'MODERATOR.ODOBRI' | translate }}</button>
+              <button class="dugme dugme-opasnost dugme-malo" (click)="otvoriOdbijanjeAzila(a._id)">{{ 'MODERATOR.ODBIJ' | translate }}</button>
+            </div>
+
+            @if (idOdbijanjaAzila == a._id) {
+              <div class="polje" style="margin-top: 10px;">
+                <label>{{ 'MODERATOR.RAZLOG_ODBIJANJA' | translate }}</label>
+                <input type="text" [(ngModel)]="razlog" name="razlogAzil{{a._id}}" required>
+                @if (!razlog.trim()) {
+                  <span class="greska-polja">{{ 'VALIDACIJA.RAZLOG_OBAVEZAN' | translate }}</span>
+                }
+                <button class="dugme dugme-opasnost dugme-malo" style="margin-top: 8px;" [disabled]="!razlog.trim()" (click)="odbijAzil(a._id)">{{ 'COMMON.POSALJI' | translate }}</button>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+
+    <h3>{{ 'MODERATOR.OBJAVE_NA_CEKANJU' | translate }}</h3>
+
+    @if (objaveNaCekanju.length == 0) {
+      <p class="poruka poruka-uspeh">{{ 'MODERATOR.NEMA_ZAHTEVA' | translate }}</p>
+    } @else {
+      <div class="mreza-kartica">
+        @for (z of objaveNaCekanju; track z._id) {
+          <div class="karta">
+            <img class="objava-slika" [src]="slika(z)" [alt]="z.naziv">
+            <h4>{{ z.naziv }}</h4>
+            <p>{{ 'PRETRAGA.' + z.vrsta.toUpperCase() | translate }} · {{ z.rasa | prevediRasu }} · {{ z.starostMeseci | starost }} · {{ 'PRETRAGA.' + z.pol.toUpperCase() | translate }}</p>
+            <p>🏠 {{ z.azilId?.naziv }} ({{ z.azilId?.email }})</p>
+            <p>{{ 'ZIVOTINJA.KARAKTER' | translate }}: {{ z.opisKaraktera | prevediTekst }}</p>
+            <p>{{ 'ZIVOTINJA.STERILISAN' | translate }}: {{ (z.sterilisan ? 'COMMON.DA' : 'COMMON.NE') | translate }}
+              · {{ 'ZIVOTINJA.VAKCINISAN' | translate }}: {{ (z.vakcinisan ? 'COMMON.DA' : 'COMMON.NE') | translate }}</p>
+            @if (z.zdravstveneInfo) {
+              <p>{{ 'ZIVOTINJA.ZDRAVSTVENO' | translate }}: {{ z.zdravstveneInfo | prevediTekst }}</p>
+            }
+
+            <div class="polje-red">
+              <button class="dugme dugme-primarno dugme-malo" (click)="odobriObjavu(z._id)">{{ 'MODERATOR.ODOBRI' | translate }}</button>
+              <button class="dugme dugme-opasnost dugme-malo" (click)="otvoriOdbijanjeObjave(z._id)">{{ 'MODERATOR.ODBIJ' | translate }}</button>
+            </div>
+
+            @if (idOdbijanjaObjave == z._id) {
+              <div class="polje" style="margin-top: 10px;">
+                <label>{{ 'MODERATOR.RAZLOG_ODBIJANJA' | translate }}</label>
+                <input type="text" [(ngModel)]="razlog" name="razlogObjava{{z._id}}" required>
+                @if (!razlog.trim()) {
+                  <span class="greska-polja">{{ 'VALIDACIJA.RAZLOG_OBAVEZAN' | translate }}</span>
+                }
+                <button class="dugme dugme-opasnost dugme-malo" style="margin-top: 8px;" [disabled]="!razlog.trim()" (click)="odbijObjavu(z._id)">{{ 'COMMON.POSALJI' | translate }}</button>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

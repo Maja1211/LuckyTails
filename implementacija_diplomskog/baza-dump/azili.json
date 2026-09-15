@@ -1,0 +1,384 @@
+[{
+	"_id": {
+		"$oid": "6aa17ad758f4f2698a6de99d"
+	},
+	"naziv": "Azil Prijatelj",
+	"email": "azil.prijatelj@example.com",
+	"lozinka": "$2b$10$bbxF/1zaNYlGSG0zb5PXW.LDsfqfBdr3JbT7sZCT5NSxGWHA.tehG",
+	"telefon": "011/1234567",
+	"adresa": "Bulevar Oslobođenja 15",
+	"lokacija": "Beograd",
+	"opis": "Azil za napuštene pse i mačke u Beogradu, postoji od 2015. godine.",
+	"trajanjeTermina": 30,
+	"status": "odobren",
+	"emailPotvrdjen": true,
+	"radnoVreme": [
+		{
+			"dan": 1,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 2,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 3,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 4,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 5,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		}
+	],
+	"datumRegistracije": {
+		"$date": "2026-09-09T15:27:19.911Z"
+	},
+	"__v": 2,
+	"nacinPodrske": {
+		"novcaneDonacije": true,
+		"brojRacuna": "265-1100000123456-78",
+		"donacijaHrane": false,
+		"veterinarskaPomoc": true,
+		"ostalo": "Radimo sa lokalnim veterinarima i sprovodimo redovnu kontrolu zdravlja svih životinja."
+	},
+	"korisnickoIme": "azil.prijatelj",
+	"recenzije": [
+		{
+			"korisnikId": {
+				"$oid": "6aa17f2e58f4f2698a6de9fe"
+			},
+			"ime": "Jovana",
+			"prezime": "Jovanovic",
+			"ocena": 5,
+			"tekst": "Brzo su odgovorili na sve nase upite, preporuka.",
+			"datum": {
+				"$date": "2026-09-12T12:31:20.15Z"
+			}
+		}
+	],
+	"lat": 44.8010014,
+	"lng": 20.4664348
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeed"
+	},
+	"naziv": "Sklonište Nada",
+	"email": "sklonistenada@example.com",
+	"lozinka": "$2b$10$DEvbKlqMDfz2kFTzusUmYu/xR4m2RZLFPlPbpHa.CKhE0W4Uk/946",
+	"telefon": "0214567890",
+	"adresa": "Rumenačka 45",
+	"lokacija": "Novi Sad",
+	"opis": "Sklonište za napuštene i zlostavljane pse i mačke u Novom Sadu, radimo od 2018. godine.",
+	"oNama": "Naš tim čine volonteri posvećeni zbrinjavanju i udomljavanju životinja sa ulice. Sarađujemo sa lokalnim veterinarima na vakcinaciji i sterilizaciji. neka izmena",
+	"nacinPodrske": {
+		"novcaneDonacije": true,
+		"brojRacuna": "340-0000987654321-12",
+		"donacijaHrane": true,
+		"veterinarskaPomoc": true,
+		"ostalo": ""
+	},
+	"radnoVreme": [
+		{
+			"dan": 1,
+			"odVremena": "10:00",
+			"doVremena": "18:00"
+		},
+		{
+			"dan": 2,
+			"odVremena": "10:00",
+			"doVremena": "18:00"
+		},
+		{
+			"dan": 3,
+			"odVremena": "10:00",
+			"doVremena": "18:00"
+		},
+		{
+			"dan": 4,
+			"odVremena": "10:00",
+			"doVremena": "18:00"
+		},
+		{
+			"dan": 5,
+			"odVremena": "10:00",
+			"doVremena": "18:00"
+		}
+	],
+	"trajanjeTermina": 45,
+	"status": "odobren",
+	"emailPotvrdjen": true,
+	"datumRegistracije": {
+		"$date": "2026-09-09T18:59:33.054Z"
+	},
+	"korisnickoIme": "sklonistenada",
+	"__v": 3,
+	"recenzije": [
+		{
+			"korisnikId": {
+				"$oid": "6aa1ac95e9a43f8db3d1aefc"
+			},
+			"ime": "Marko",
+			"prezime": "Nikolić",
+			"ocena": 5,
+			"tekst": "Profesionalan pristup i puno strpljenja pri upoznavanju sa životinjom pre udomljavanja.",
+			"datum": {
+				"$date": "2026-09-13T12:45:33.626Z"
+			}
+		}
+	],
+	"lat": 45.263198,
+	"lng": 19.8177318
+},
+{
+	"_id": {
+		"$oid": "6aa3d8a2c32d8b007348f437"
+	},
+	"naziv": "Prijatelji sa četiri šape",
+	"email": "prijateljicetiri@example.com",
+	"lozinka": "$2b$10$3DuF9yYNi8zWvJCXuuHLX.himNUIreYHgNB.K9wlJ2PCfO5phn5Ae",
+	"telefon": "034/1122334",
+	"adresa": "Kneza Miloša 22",
+	"lokacija": "Kragujevac",
+	"opis": "Azil 'Prijatelji sa četiri šape' zbrinjava napuštene pse i mačke šumadijskog regiona.",
+	"oNama": "Osnovani smo 2019. godine sa ciljem da svaka životinja u našoj brizi dobije drugu šansu. Sarađujemo sa lokalnom veterinarskom stanicom.",
+	"nacinPodrske": {
+		"novcaneDonacije": true,
+		"donacijaHrane": true,
+		"veterinarskaPomoc": true,
+		"ostalo": "",
+		"brojRacuna": "205-9988776655443-67"
+	},
+	"radnoVreme": [
+		{
+			"dan": 1,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 2,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 3,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 4,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 5,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		}
+	],
+	"trajanjeTermina": 30,
+	"status": "odobren",
+	"emailPotvrdjen": true,
+	"datumRegistracije": {
+		"$date": "2026-09-11T10:32:02.823Z"
+	},
+	"korisnickoIme": "prijateljicetiri",
+	"__v": 1,
+	"recenzije": [
+		{
+			"korisnikId": {
+				"$oid": "6aa3d8a2c32d8b007348f443"
+			},
+			"ime": "Nikola",
+			"prezime": "Đorđević",
+			"ocena": 5,
+			"tekst": "Ljubazni i posveceni, preporucujem svima koji zele da udome zivotinju.",
+			"datum": {
+				"$date": "2026-09-12T12:29:25.598Z"
+			}
+		}
+	],
+	"lat": 44.0090042,
+	"lng": 20.9077352
+},
+{
+	"_id": {
+		"$oid": "6aa1ac95e9a43f8db3d1aeee"
+	},
+	"naziv": "Azil Srce",
+	"email": "azilsrce@example.com",
+	"lozinka": "$2b$10$DEvbKlqMDfz2kFTzusUmYu/xR4m2RZLFPlPbpHa.CKhE0W4Uk/946",
+	"telefon": "018/2345678",
+	"adresa": "Bulevar Nemanjića 12",
+	"lokacija": "Niš",
+	"opis": "Azil 'Srce' brine o napuštenim životinjama jugoistočne Srbije od 2020. godine.",
+	"oNama": "Mali, ali posvećen tim - trudimo se da svaka životinja dobije priliku za novi dom.",
+	"nacinPodrske": {
+		"novcaneDonacije": true,
+		"brojRacuna": "160-1234567890123-45",
+		"donacijaHrane": false,
+		"veterinarskaPomoc": true,
+		"ostalo": "Odeća i ćebad za zimske mesece"
+	},
+	"radnoVreme": [
+		{
+			"dan": 1,
+			"odVremena": "08:00",
+			"doVremena": "16:00"
+		},
+		{
+			"dan": 2,
+			"odVremena": "08:00",
+			"doVremena": "16:00"
+		},
+		{
+			"dan": 3,
+			"odVremena": "08:00",
+			"doVremena": "16:00"
+		},
+		{
+			"dan": 4,
+			"odVremena": "08:00",
+			"doVremena": "16:00"
+		},
+		{
+			"dan": 5,
+			"odVremena": "08:00",
+			"doVremena": "16:00"
+		}
+	],
+	"trajanjeTermina": 30,
+	"status": "odobren",
+	"emailPotvrdjen": true,
+	"datumRegistracije": {
+		"$date": "2026-09-09T18:59:33.055Z"
+	},
+	"korisnickoIme": "azilsrce",
+	"__v": 2,
+	"recenzije": [
+		{
+			"korisnikId": {
+				"$oid": "6aa17f2e58f4f2698a6de9fe"
+			},
+			"ime": "Jovana",
+			"prezime": "Jovanovic",
+			"ocena": 5,
+			"tekst": "Odlicno osoblje i lijepo su primili moju porodicu.",
+			"datum": {
+				"$date": "2026-09-12T12:27:10.309Z"
+			}
+		},
+		{
+			"korisnikId": {
+				"$oid": "6aa1ac95e9a43f8db3d1aefd"
+			},
+			"ime": "Ana",
+			"prezime": "Ilić",
+			"ocena": 5,
+			"tekst": "Divno iskustvo, osoblje je bilo veoma susretljivo tokom cele posete.",
+			"datum": {
+				"$date": "2026-09-12T13:18:54.031Z"
+			}
+		}
+	],
+	"lat": 43.3239816,
+	"lng": 21.9073466
+},
+{
+	"_id": {
+		"$oid": "6aa6a7365a65bf027ba045dc"
+	},
+	"naziv": "Prijatelji Životinja Subotica",
+	"email": "azilsubotica@example.com",
+	"lozinka": "$2b$10$dVaY1psoKVUJr5UtrXRBCuY.2XR4.vildOJyVYh1G1Z8bTEOr3UmO",
+	"telefon": "024/1234567",
+	"adresa": "Trg Republike 5",
+	"lokacija": "Subotica",
+	"opis": "Novoosnovano sklonište koje zbrinjava napuštene pse i mačke sa teritorije Subotice i okoline.",
+	"oNama": "Osnovali smo ovo sklonište 2026. godine kao grupa volontera posvećenih dobrobiti životinja u našoj zajednici.",
+	"nacinPodrske": {
+		"novcaneDonacije": true,
+		"brojRacuna": "160-9876543210987-12",
+		"donacijaHrane": true,
+		"veterinarskaPomoc": false,
+		"ostalo": ""
+	},
+	"radnoVreme": [
+		{
+			"dan": 1,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 2,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 3,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 4,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		},
+		{
+			"dan": 5,
+			"odVremena": "09:00",
+			"doVremena": "17:00"
+		}
+	],
+	"trajanjeTermina": 30,
+	"status": "na_cekanju",
+	"emailPotvrdjen": true,
+	"datumRegistracije": {
+		"$date": "2026-09-13T13:37:58.329Z"
+	},
+	"korisnickoIme": "azilsubotica",
+	"recenzije": [],
+	"lat": 46.1008,
+	"lng": 19.665
+},
+{
+	"_id": {
+		"$oid": "6aa6a766d1724b1528a30f93"
+	},
+	"naziv": "Sklonište za Životinje Vranje",
+	"email": "azilvranje@example.com",
+	"lozinka": "$2b$10$.wknuw0YzqNXoKuLVvonWuvZKCA4xwAyXtak8IjRdo8U56qogjIBS",
+	"telefon": "017/7654321",
+	"adresa": "Kralja Milana 22",
+	"lokacija": "Vranje",
+	"opis": "",
+	"nacinPodrske": {
+		"novcaneDonacije": false,
+		"brojRacuna": "",
+		"donacijaHrane": false,
+		"veterinarskaPomoc": false,
+		"ostalo": ""
+	},
+	"radnoVreme": [],
+	"trajanjeTermina": 30,
+	"status": "odbijen",
+	"razlogOdbijanja": "Navedena adresa i kontakt podaci nisu mogli da se potvrde. Molimo vas da se ponovo registrujete sa tačnim i proverljivim podacima o azilu.",
+	"emailPotvrdjen": true,
+	"datumRegistracije": {
+		"$date": "2026-09-10T11:20:00Z"
+	},
+	"korisnickoIme": "azilvranje",
+	"recenzije": [],
+	"lat": 42.554,
+	"lng": 21.9034
+}]
+

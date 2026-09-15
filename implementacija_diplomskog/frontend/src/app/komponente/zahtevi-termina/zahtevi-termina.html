@@ -1,0 +1,114 @@
+<div class="kontejner">
+  <div class="polje-red" style="justify-content: space-between; align-items: center;">
+    <h2>{{ 'TERMIN.ZAHTEVI_NASLOV' | translate }}</h2>
+    @if (termini.length > 1) {
+      <button type="button" class="dugme dugme-sekundarno dugme-malo" (click)="sortirajPoVremenu()">
+        {{ 'TERMIN.SORTIRAJ_PO_VREMENU' | translate }}
+        @if (smerSortiranja == 'asc') { ↑ } @else if (smerSortiranja == 'desc') { ↓ }
+      </button>
+    }
+  </div>
+
+  @if (poruka) {
+    <p class="poruka poruka-greska">{{ poruka }}</p>
+  }
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else if (termini.length == 0) {
+    <p class="poruka poruka-greska">{{ 'COMMON.NEMA_PODATAKA' | translate }}</p>
+  } @else {
+    <div class="mreza-kartica">
+      @for (t of termini; track t._id) {
+        <div class="karta">
+          <img [src]="slika(t)" [alt]="t.zivotinjaId?.naziv" class="termin-slika">
+          <h3>{{ t.zivotinjaId?.naziv }}</h3>
+          @if (t.zivotinjaId?.rasa) {
+            <p>{{ t.zivotinjaId.rasa | prevediRasu }} · {{ t.zivotinjaId.starostMeseci | starost }}</p>
+          }
+          <p>👤 {{ t.korisnikId?.ime }} {{ t.korisnikId?.prezime }} - {{ t.korisnikId?.email }}</p>
+          <p>🗓️ {{ t.datumVreme | date:'dd.MM.yyyy HH:mm' }}</p>
+
+          @if (t.korisnikId?.formular) {
+            <div class="formular-info">
+              <p>🏠 {{ 'FORMULAR.TIP_STAMBENOG' | translate }}: {{ t.korisnikId.formular.tipStambenogProstora | prevediTekst }}</p>
+              <p>{{ 'FORMULAR.SVRHA' | translate }}: {{ (t.korisnikId.formular.svrhaUdomljavanja == 'Drugo' ? 'FORMULAR.SVRHA_DRUGO' : 'FORMULAR.SVRHA_KUCNI_LJUBIMAC') | translate }}@if (t.korisnikId.formular.svrhaUdomljavanja == 'Drugo' && t.korisnikId.formular.svrhaUdomljavanjaOpis) { - {{ t.korisnikId.formular.svrhaUdomljavanjaOpis | prevediTekst }} }</p>
+              <p>{{ 'FORMULAR.IMA_DRUGE_ZIVOTINJE' | translate }} {{ (t.korisnikId.formular.imaDrugeZivotinje ? 'COMMON.DA' : 'COMMON.NE') | translate }}@if (t.korisnikId.formular.imaDrugeZivotinje) { ({{ t.korisnikId.formular.brojDrugihZivotinja }} - {{ t.korisnikId.formular.vrstaDrugihZivotinja | prevediTekst }}) }</p>
+              @if (t.korisnikId.formular.iskustvo) {
+                <p>{{ 'FORMULAR.ISKUSTVO' | translate }}: {{ t.korisnikId.formular.iskustvo | prevediTekst }}</p>
+              }
+              @if (t.korisnikId.formular.ostaloRelevantno) {
+                <p>{{ 'FORMULAR.OSTALO' | translate }}: {{ t.korisnikId.formular.ostaloRelevantno | prevediTekst }}</p>
+              }
+            </div>
+          }
+
+          <span class="oznaka" [ngClass]="klasaOznake(t.status)">
+            {{ 'TERMIN.STATUS_' + t.status.toUpperCase() | translate }}
+          </span>
+
+          @if (t.status == 'na_cekanju') {
+            <div class="polje-red" style="margin-top: 10px;">
+              <button class="dugme dugme-primarno dugme-malo" (click)="odobri(t._id)">{{ 'TERMIN.ODOBRI' | translate }}</button>
+              <button class="dugme dugme-opasnost dugme-malo" (click)="otvoriOdbijanje(t._id)">{{ 'TERMIN.ODBIJ' | translate }}</button>
+              <button class="dugme dugme-sekundarno dugme-malo" (click)="otvoriPredlog(t._id)">{{ 'TERMIN.PREDLOZI_NOVI' | translate }}</button>
+            </div>
+
+            @if (idOdbijanja == t._id) {
+              <div class="polje" style="margin-top: 10px;">
+                <label>{{ 'TERMIN.RAZLOG_ODBIJANJA' | translate }} *</label>
+                <input type="text" [(ngModel)]="razlogOdbijanja" name="razlogOdbijanja{{t._id}}">
+              </div>
+              <button class="dugme dugme-primarno dugme-malo" [disabled]="!razlogOdbijanja.trim()" (click)="posaljiOdbijanje(t._id)">{{ 'COMMON.POSALJI' | translate }}</button>
+              @if (porukaOdbijanja) {
+                <p class="poruka poruka-greska" style="margin-top: 8px;">{{ porukaOdbijanja }}</p>
+              }
+            }
+
+            @if (idPredlaganja == t._id) {
+              <div class="polje-red" style="margin-top: 10px;">
+                <input type="date" [(ngModel)]="noviDatum" [min]="danasIso" name="noviDatum{{t._id}}">
+                <input type="time" [(ngModel)]="noviSat" name="noviSat{{t._id}}">
+                <button class="dugme dugme-primarno dugme-malo" [disabled]="!noviDatum || !noviSat" (click)="posaljiPredlog(t._id)">{{ 'COMMON.POSALJI' | translate }}</button>
+              </div>
+              @if (porukaPredloga) {
+                <p class="poruka poruka-greska" style="margin-top: 8px;">{{ porukaPredloga }}</p>
+              }
+            }
+          }
+
+          @if (t.status == 'odobren') {
+            @if (terminJeUBuducnosti(t)) {
+              <div class="polje-red" style="margin-top: 10px;">
+                <button class="dugme dugme-opasnost dugme-malo" (click)="otvoriOtkazivanje(t._id)">{{ 'TERMIN.OTKAZI_TERMIN' | translate }}</button>
+              </div>
+
+              @if (idOtkazivanja == t._id) {
+                <div class="polje" style="margin-top: 10px;">
+                  <label>{{ 'TERMIN.RAZLOG_OTKAZIVANJA' | translate }} *</label>
+                  <input type="text" [(ngModel)]="razlogOtkazivanja" name="razlogOtkazivanja{{t._id}}">
+                </div>
+                <button class="dugme dugme-primarno dugme-malo" [disabled]="!razlogOtkazivanja.trim()" (click)="posaljiOtkazivanje(t._id)">{{ 'COMMON.POSALJI' | translate }}</button>
+                @if (porukaOtkazivanja) {
+                  <p class="poruka poruka-greska" style="margin-top: 8px;">{{ porukaOtkazivanja }}</p>
+                }
+              }
+            } @else {
+              <div class="polje-red" style="margin-top: 10px;">
+                <button class="dugme dugme-opasnost dugme-malo" (click)="oznaciNepojavljivanje(t._id)">{{ 'TERMIN.OZNACI_NEPOJAVLJIVANJE' | translate }}</button>
+              </div>
+              <p class="formular-napomena" style="margin-top: 8px;">{{ 'TERMIN.NEPOJAVLJIVANJE_NAPOMENA' | translate }}</p>
+            }
+          }
+
+          @if (t.status == 'odbijen' && t.napomenaAzila) {
+            <p class="formular-napomena" style="margin-top: 8px;">{{ 'TERMIN.RAZLOG_ODBIJANJA' | translate }}: {{ t.napomenaAzila | prevediTekst }}</p>
+          }
+          @if (t.status == 'otkazan' && t.napomenaAzila) {
+            <p class="formular-napomena" style="margin-top: 8px;">{{ 'TERMIN.RAZLOG_OTKAZIVANJA' | translate }}: {{ t.napomenaAzila | prevediTekst }}</p>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,15 @@
+.forma {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.interval-red {
+    margin-bottom: 8px;
+}
+
+.interval-red select,
+.interval-red input {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1.5px solid var(--boja-ivica);
+}

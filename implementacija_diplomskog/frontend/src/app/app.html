@@ -1,0 +1,64 @@
+<header class="zaglavlje">
+  <div class="zaglavlje-sadrzaj">
+    <a routerLink="/" class="logo">🐾 {{ 'NASLOV_APLIKACIJE' | translate }}</a>
+
+    <nav class="navigacija">
+      @if (auth.ulogovanUloga() != 'azil' && auth.ulogovanUloga() != 'moderator') {
+        <a routerLink="/pretraga">{{ 'NAV.PRETRAGA' | translate }}</a>
+        <a routerLink="/azili">{{ 'NAV.AZILI' | translate }}</a>
+      }
+      <a routerLink="/faq">FAQ</a>
+
+      @if (auth.ulogovanUloga() == 'korisnik') {
+        <a routerLink="/omiljene">{{ 'NAV.OMILJENE' | translate }}</a>
+        <a routerLink="/moji-termini">{{ 'NAV.MOJI_TERMINI' | translate }}</a>
+        <a routerLink="/profil">{{ 'NAV.PROFIL' | translate }}</a>
+      }
+
+      @if (auth.ulogovanUloga() == 'azil') {
+        @if (auth.ulogovanProfil()?.status == 'odobren') {
+          <a routerLink="/moje-objave">{{ 'NAV.MOJE_OBJAVE' | translate }}</a>
+          <a routerLink="/zahtevi-termina">{{ 'NAV.ZAHTEVI_TERMINA' | translate }}</a>
+        }
+        <a routerLink="/profil-azila">{{ 'NAV.PROFIL' | translate }}</a>
+      }
+
+      @if (auth.ulogovanUloga() == 'moderator') {
+        <a routerLink="/admin">{{ 'NAV.ADMIN_PANEL' | translate }}</a>
+      }
+
+      @if (auth.jeUlogovan()) {
+        <button class="dugme dugme-sekundarno dugme-malo" (click)="odjava()">{{ 'NAV.ODJAVA' | translate }}</button>
+      } @else {
+        <a routerLink="/login">{{ 'NAV.PRIJAVA' | translate }}</a>
+        <a routerLink="/registracija">{{ 'NAV.REGISTRACIJA' | translate }}</a>
+      }
+
+      <div class="prekidac-jezika">
+        <button
+          [class.aktivan]="trenutniJezik() == 'sr'"
+          (click)="promeniJezik('sr')"
+        >SR</button>
+        <button
+          [class.aktivan]="trenutniJezik() == 'en'"
+          (click)="promeniJezik('en')"
+        >EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  @if (prikaziNazad()) {
+    <div class="traka-nazad">
+      <button type="button" class="dugme-tekst" (click)="nazad()">← {{ 'COMMON.NAZAD' | translate }}</button>
+    </div>
+  }
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="podnozje">
+  <div class="kontejner">
+    <p>🐾 {{ 'NASLOV_APLIKACIJE' | translate }} - {{ 'POCETNA.PODNASLOV' | translate }}</p>
+  </div>
+</footer>

@@ -1,0 +1,59 @@
+<div class="kontejner">
+  <div class="polje-red" style="justify-content: space-between; align-items: center;">
+    <h2>{{ 'TERMIN.MOJI_TERMINI_NASLOV' | translate }}</h2>
+    @if (termini.length > 1) {
+      <button type="button" class="dugme dugme-sekundarno dugme-malo" (click)="sortirajPoVremenu()">
+        {{ 'TERMIN.SORTIRAJ_PO_VREMENU' | translate }}
+        @if (smerSortiranja == 'asc') { ↑ } @else if (smerSortiranja == 'desc') { ↓ }
+      </button>
+    }
+  </div>
+
+  @if (poruka) {
+    <p class="poruka poruka-greska">{{ poruka }}</p>
+  }
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else if (termini.length == 0) {
+    <p class="poruka poruka-greska">{{ 'COMMON.NEMA_PODATAKA' | translate }}</p>
+  } @else {
+    <div class="mreza-kartica">
+      @for (t of termini; track t._id) {
+        <div class="karta">
+          <img [src]="slika(t)" [alt]="t.zivotinjaId?.naziv" class="termin-slika">
+          <h3>{{ t.zivotinjaId?.naziv }}</h3>
+          @if (t.zivotinjaId?.rasa) {
+            <p>{{ t.zivotinjaId.rasa | prevediRasu }} · {{ t.zivotinjaId.starostMeseci | starost }}</p>
+          }
+          <p>🏠 {{ t.azilId?.naziv }}</p>
+          <p>🗓️ {{ t.datumVreme | date:'dd.MM.yyyy HH:mm' }}</p>
+
+          <span class="oznaka" [ngClass]="klasaOznake(t.status)">
+            {{ 'TERMIN.STATUS_' + t.status.toUpperCase() | translate }}
+          </span>
+
+          @if (t.status == 'predlozen_novi') {
+            <p style="margin-top: 10px;">
+              {{ 'TERMIN.PREDLOZENI_TERMIN' | translate }}: {{ t.predlozenoDatumVreme | date:'dd.MM.yyyy HH:mm' }}
+            </p>
+            <div class="polje-red">
+              <button class="dugme dugme-primarno dugme-malo" (click)="odgovori(t._id, true)">{{ 'TERMIN.PRIHVATI_PREDLOG' | translate }}</button>
+              <button class="dugme dugme-opasnost dugme-malo" (click)="odgovori(t._id, false)">{{ 'TERMIN.ODBIJ_PREDLOG' | translate }}</button>
+            </div>
+          }
+
+          @if (t.status == 'na_cekanju' || t.status == 'odobren') {
+            <button class="dugme dugme-opasnost dugme-malo" style="margin-top: 10px;" (click)="otkazi(t._id)">
+              {{ 'TERMIN.OTKAZI_TERMIN' | translate }}
+            </button>
+          }
+
+          @if ((t.status == 'odbijen' || t.status == 'otkazan') && t.napomenaAzila) {
+            <p class="formular-napomena" style="margin-top: 8px;">{{ 'TERMIN.RAZLOG_AZILA' | translate }}: {{ t.napomenaAzila | prevediTekst }}</p>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

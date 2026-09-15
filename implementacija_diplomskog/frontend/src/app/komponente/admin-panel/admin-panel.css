@@ -1,0 +1,47 @@
+h3 {
+    margin-top: 28px;
+    margin-bottom: 14px;
+}
+
+.mreza-kartica {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+
+.objava-slika {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    padding: 14px;
+    background: var(--boja-pozadina);
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.statistika-mreza {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.statistika-kartica {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.statistika-broj {
+    font-family: var(--font-naslov);
+    font-size: 1.8rem;
+    color: var(--boja-primarna-tamna);
+}
+
+.statistika-labela {
+    font-weight: 600;
+}
+
+.statistika-detalj {
+    color: var(--boja-tekst-slaba);
+    font-size: 0.85rem;
+}

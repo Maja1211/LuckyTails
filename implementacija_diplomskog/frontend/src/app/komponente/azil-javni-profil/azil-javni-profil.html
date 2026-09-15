@@ -1,0 +1,155 @@
+<div class="kontejner">
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else if (greska || azil == null) {
+    <p class="poruka poruka-greska">{{ 'COMMON.NEMA_PODATAKA' | translate }}</p>
+  } @else {
+
+    <div class="karta">
+      <h2>{{ azil.naziv }}</h2>
+      <p>📍 {{ azil.lokacija }} - {{ azil.adresa }}</p>
+      <p>📞 {{ azil.telefon }} · ✉️ {{ azil.email }}</p>
+
+      @if (azil.opis) {
+        <h4>{{ 'COMMON.OPIS' | translate }}</h4>
+        <p>{{ azil.opis | prevediTekst }}</p>
+      }
+
+      @if (azil.oNama) {
+        <h4>{{ 'AZIL_PROFIL.O_NAMA' | translate }}</h4>
+        <p>{{ azil.oNama | prevediTekst }}</p>
+      }
+
+      @if (azil.nacinPodrske) {
+        <h4>{{ 'AZIL_PROFIL.NACIN_PODRSKE' | translate }}</h4>
+        <ul>
+          @if (azil.nacinPodrske.novcaneDonacije) {
+            <li>
+              {{ 'AZIL_PROFIL.NOVCANE_DONACIJE' | translate }}
+              @if (azil.nacinPodrske.brojRacuna) {
+                - {{ 'AZIL_PROFIL.BROJ_RACUNA' | translate }}: {{ azil.nacinPodrske.brojRacuna }}
+              }
+            </li>
+          }
+          @if (azil.nacinPodrske.donacijaHrane) {
+            <li>{{ 'AZIL_PROFIL.DONACIJA_HRANE' | translate }}</li>
+          }
+          @if (azil.nacinPodrske.veterinarskaPomoc) {
+            <li>{{ 'AZIL_PROFIL.VETERINARSKA_POMOC' | translate }}</li>
+          }
+          @if (azil.nacinPodrske.ostalo) {
+            <li>{{ azil.nacinPodrske.ostalo | prevediTekst }}</li>
+          }
+        </ul>
+      }
+
+      @if (azil.radnoVreme.length > 0) {
+        <h4>{{ 'AZIL_PROFIL.RADNO_VREME' | translate }}</h4>
+        <ul>
+          @for (interval of azil.radnoVreme; track $index) {
+            <li>{{ ('AZIL_PROFIL.DANI' | translate)[interval.dan] }}: {{ interval.odVremena }} - {{ interval.doVremena }}</li>
+          }
+        </ul>
+      }
+
+      @if (azil.lat != null && azil.lng != null) {
+        <h4>{{ 'AZIL_PROFIL.LOKACIJA_NA_MAPI' | translate }}</h4>
+        <app-mapa-lokacije [lat]="azil.lat" [lng]="azil.lng" [naziv]="azil.naziv"></app-mapa-lokacije>
+      }
+
+      <p class="poruka" style="background: rgba(217,154,43,0.1); color: var(--boja-upozorenje); border: 1px solid rgba(217,154,43,0.3); margin-top: 20px;">
+        {{ 'AZIL_PROFIL.NAPOMENA_INSPEKCIJA' | translate }}
+      </p>
+    </div>
+
+    <div class="karta" style="margin-top: 20px;">
+      <h3 class="naslov-sekcije">
+        {{ 'AZIL_PROFIL.RECENZIJE' | translate }}
+        @if (prosecnaOcena != null) {
+          <span class="prosecna-ocena">★ {{ prosecnaOcena!.toFixed(1) }} ({{ azil.recenzije!.length }})</span>
+        }
+      </h3>
+
+      @if (!azil.recenzije || azil.recenzije.length == 0) {
+        <p>{{ 'AZIL_PROFIL.NEMA_RECENZIJA' | translate }}</p>
+      } @else {
+        <div class="lista-recenzija">
+          @for (r of azil.recenzije; track $index) {
+            <div class="recenzija" [class.moja-recenzija]="r.korisnikId === auth.ulogovanProfil()?.id">
+              <div class="recenzija-zaglavlje">
+                <span class="recenzija-autor">
+                  <strong>{{ r.ime ? (r.ime + ' ' + r.prezime) : ('AZIL_PROFIL.OBRISAN_KORISNIK' | translate) }}</strong>
+                  @if (r.korisnikId === auth.ulogovanProfil()?.id) {
+                    <span class="oznaka-moja-recenzija">{{ 'AZIL_PROFIL.VASA_RECENZIJA_OZNAKA' | translate }}</span>
+                  }
+                </span>
+                <span class="recenzija-ocena">★ {{ r.ocena }}/5</span>
+              </div>
+              <p>{{ r.tekst | prevediTekst }}</p>
+            </div>
+          }
+        </div>
+      }
+
+      @if (vecOcenio) {
+        <p class="formular-napomena" style="margin-top: 16px;">{{ 'AZIL_PROFIL.VEC_OCENILI' | translate }}</p>
+      } @else if (mozeOceniti) {
+        <div class="forma-recenzije">
+          <h4>{{ 'AZIL_PROFIL.OSTAVI_RECENZIJU' | translate }}</h4>
+
+          <div class="polje">
+            <label>{{ 'AZIL_PROFIL.VASA_OCENA' | translate }}</label>
+            <select [(ngModel)]="novaOcena" name="novaOcena">
+              <option [value]="5">5</option>
+              <option [value]="4">4</option>
+              <option [value]="3">3</option>
+              <option [value]="2">2</option>
+              <option [value]="1">1</option>
+            </select>
+          </div>
+
+          <div class="polje">
+            <label>{{ 'AZIL_PROFIL.VAS_KOMENTAR' | translate }}</label>
+            <textarea rows="3" [(ngModel)]="noviTekst" name="noviTekst"></textarea>
+          </div>
+
+          @if (porukaRecenzija) {
+            <p class="poruka" [class.poruka-greska]="greskaRecenzija">{{ porukaRecenzija }}</p>
+          }
+
+          <button type="button" class="dugme dugme-primarno" (click)="posaljiRecenziju()">{{ 'AZIL_PROFIL.POSALJI_RECENZIJU' | translate }}</button>
+        </div>
+      }
+    </div>
+
+    @if (aktivneZivotinje.length > 0) {
+      <h3 class="naslov-sekcije">{{ 'AZIL_PROFIL.NASE_ZIVOTINJE' | translate }}</h3>
+      <div class="mreza-kartica">
+        @for (z of aktivneZivotinje; track z._id) {
+          <a class="karta zivotinja-kartica" [routerLink]="['/zivotinja', z._id]">
+            <img [src]="slika(z)" [alt]="z.naziv">
+            <div class="zivotinja-info">
+              <h3>{{ z.naziv }}</h3>
+              <p>{{ z.rasa | prevediRasu }} · {{ z.starostMeseci | starost }}</p>
+            </div>
+          </a>
+        }
+      </div>
+    }
+
+    @if (udomljeneZivotinje.length > 0) {
+      <h3 class="naslov-sekcije">{{ 'OBJAVE.UDOMLJENE' | translate }}</h3>
+      <div class="mreza-kartica udomljene-mreza">
+        @for (z of udomljeneZivotinje; track z._id) {
+          <a class="karta zivotinja-kartica udomljena-kartica" [routerLink]="['/zivotinja', z._id]">
+            <img [src]="slika(z)" [alt]="z.naziv">
+            <div class="zivotinja-info">
+              <h3>{{ z.naziv }}</h3>
+              <p>{{ z.rasa | prevediRasu }} · {{ z.starostMeseci | starost }}</p>
+            </div>
+          </a>
+        }
+      </div>
+    }
+  }
+</div>

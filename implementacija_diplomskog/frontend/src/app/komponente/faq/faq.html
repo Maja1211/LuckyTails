@@ -1,0 +1,14 @@
+<div class="kontejner">
+  <div class="forma">
+    <h2>{{ 'FAQ.NASLOV' | translate }}</h2>
+
+    <div class="faq-lista">
+      @for (stavka of ('FAQ.PITANJA' | translate); track $index) {
+        <div class="karta faq-stavka">
+          <h4>{{ stavka.P }}</h4>
+          <p>{{ stavka.O }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+.zaglavlje {
+    background: var(--boja-povrsina);
+    border-bottom: 1px solid var(--boja-ivica);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.zaglavlje-sadrzaj {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    font-family: var(--font-naslov);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--boja-primarna-tamna);
+}
+
+.logo:hover {
+    text-decoration: none;
+}
+
+.navigacija {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.navigacija a {
+    color: var(--boja-tekst);
+}
+
+.navigacija a:hover {
+    color: var(--boja-primarna-tamna);
+    text-decoration: none;
+}
+
+.prekidac-jezika {
+    display: flex;
+    border: 1.5px solid var(--boja-ivica);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.prekidac-jezika button {
+    border: none;
+    background: transparent;
+    padding: 5px 12px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    cursor: pointer;
+    color: var(--boja-tekst-slaba);
+}
+
+.prekidac-jezika button.aktivan {
+    background: var(--boja-primarna);
+    color: white;
+}
+
+main {
+    min-height: 70vh;
+}
+
+.traka-nazad {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 20px 0 20px;
+}
+
+@media (max-width: 640px) {
+    .traka-nazad {
+        padding: 12px 14px 0 14px;
+    }
+}
+
+.traka-nazad .dugme-tekst {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px 7px 12px;
+    border-radius: 999px;
+    border: 1.5px solid var(--boja-ivica);
+    background: var(--boja-povrsina);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--boja-tekst);
+    text-decoration: none;
+}
+
+.traka-nazad .dugme-tekst:hover {
+    background: rgba(255, 138, 91, 0.08);
+    border-color: var(--boja-primarna);
+    color: var(--boja-primarna-tamna);
+    text-decoration: none;
+}
+
+.podnozje {
+    border-top: 1px solid var(--boja-ivica);
+    color: var(--boja-tekst-slaba);
+    font-size: 0.85rem;
+    margin-top: 40px;
+}

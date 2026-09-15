@@ -1,0 +1,91 @@
+<div class="kontejner">
+  <h2>{{ 'PRETRAGA.NASLOV' | translate }}</h2>
+
+  <div class="karta filter-karta">
+    <div class="filter-mreza">
+      <div class="polje">
+        <label>{{ 'PRETRAGA.VRSTA' | translate }}</label>
+        <select [(ngModel)]="vrsta" (change)="pretrazi()">
+          <option value="">{{ 'PRETRAGA.SVE_VRSTE' | translate }}</option>
+          <option value="pas">{{ 'PRETRAGA.PAS' | translate }}</option>
+          <option value="macka">{{ 'PRETRAGA.MACKA' | translate }}</option>
+        </select>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.RASA' | translate }}</label>
+        <select [(ngModel)]="rasa" (change)="pretrazi()">
+          <option value="">{{ 'PRETRAGA.SVE_RASE' | translate }}</option>
+          @for (r of sveRase; track r) {
+            <option [value]="r">{{ r | prevediRasu }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.STAROST_MIN' | translate }}</label>
+        <input type="number" min="0" [(ngModel)]="starostMin" (change)="pretrazi()">
+      </div>
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.STAROST_MAX' | translate }}</label>
+        <input type="number" min="0" [(ngModel)]="starostMax" (change)="pretrazi()">
+        @if (starostOpsegNevazeci) {
+          <span class="greska-polja">{{ 'PRETRAGA.STAROST_OPSEG_NEVAZECI' | translate }}</span>
+        }
+      </div>
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.POL' | translate }}</label>
+        <select [(ngModel)]="pol" (change)="pretrazi()">
+          <option value="">{{ 'PRETRAGA.SVI_POLOVI' | translate }}</option>
+          <option value="muzjak">{{ 'PRETRAGA.MUZJAK' | translate }}</option>
+          <option value="zenka">{{ 'PRETRAGA.ZENKA' | translate }}</option>
+        </select>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.STERILISAN' | translate }}</label>
+        <select [(ngModel)]="sterilisan" (change)="pretrazi()">
+          <option value="">{{ 'PRETRAGA.SVEJEDNO' | translate }}</option>
+          <option value="true">{{ 'COMMON.DA' | translate }}</option>
+          <option value="false">{{ 'COMMON.NE' | translate }}</option>
+        </select>
+      </div>
+
+      <div class="polje">
+        <label>{{ 'PRETRAGA.LOKACIJA' | translate }}</label>
+        <select [(ngModel)]="lokacija" (change)="pretrazi()">
+          <option value="">{{ 'PRETRAGA.SVE_LOKACIJE' | translate }}</option>
+          @for (l of sveLokacije; track l) {
+            <option [value]="l">{{ l }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <button class="dugme dugme-primarno" (click)="pretrazi()">{{ 'COMMON.PRETRAZI' | translate }}</button>
+  </div>
+
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else if (zivotinje.length == 0) {
+    <p class="poruka poruka-greska">{{ 'PRETRAGA.NEMA_REZULTATA' | translate }}</p>
+  } @else {
+    <div class="mreza-kartica rezultati">
+      @for (z of zivotinje; track z._id) {
+        <a class="karta zivotinja-kartica" [routerLink]="['/zivotinja', z._id]">
+          <img [src]="slika(z)" [alt]="z.naziv">
+          <div class="zivotinja-info">
+            <h3>{{ z.naziv }}</h3>
+            <p>{{ z.rasa | prevediRasu }} · {{ z.starostMeseci | starost }}</p>
+            <p class="zivotinja-lokacija">📍 {{ z.azilId?.lokacija }}</p>
+            @if (z.statusZivotinje == 'rezervisana') {
+              <span class="oznaka oznaka-na-cekanju">{{ 'ZIVOTINJA.STATUS_REZERVISANA' | translate }}</span>
+            }
+          </div>
+        </a>
+      }
+    </div>
+  }
+</div>

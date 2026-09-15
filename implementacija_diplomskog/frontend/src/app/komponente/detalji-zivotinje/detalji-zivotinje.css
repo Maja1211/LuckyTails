@@ -1,0 +1,69 @@
+.detalji-raspored {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.glavna-slika {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    padding: 18px;
+    background: var(--boja-pozadina);
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.traka-minijatura {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.minijatura {
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.minijatura img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    display: block;
+}
+
+.minijatura-aktivna {
+    border-color: var(--boja-primarna);
+}
+
+.naslov-red {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.slotovi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--boja-ivica);
+    margin: 20px 0;
+}
+
+@media (max-width: 800px) {
+    .detalji-raspored {
+        grid-template-columns: 1fr;
+    }
+}

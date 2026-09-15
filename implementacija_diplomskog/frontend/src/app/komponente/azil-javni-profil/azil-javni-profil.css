@@ -1,0 +1,116 @@
+.karta {
+    max-width: 640px;
+}
+
+.karta ul {
+    margin: 0 0 16px 0;
+    padding-left: 20px;
+}
+
+.karta li {
+    margin-bottom: 4px;
+}
+
+.naslov-sekcije {
+    margin-top: 32px;
+    margin-bottom: 14px;
+}
+
+.zivotinja-kartica {
+    max-width: none;
+    padding: 0;
+    overflow: hidden;
+    color: inherit;
+    display: block;
+}
+
+.zivotinja-kartica:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    transition: transform 0.15s ease;
+}
+
+.zivotinja-kartica img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    padding: 14px;
+    background: var(--boja-pozadina);
+    box-sizing: border-box;
+}
+
+.zivotinja-info {
+    padding: 14px 16px;
+}
+
+.udomljene-mreza {
+    opacity: 0.85;
+}
+
+.udomljena-kartica img {
+    filter: grayscale(35%);
+}
+
+.prosecna-ocena {
+    margin-left: 10px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--boja-upozorenje);
+}
+
+.lista-recenzija {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.recenzija {
+    padding: 12px 14px;
+    border: 1px solid var(--boja-ivica);
+    border-radius: var(--radius);
+    background: var(--boja-pozadina);
+}
+
+.recenzija.moja-recenzija {
+    background: rgba(255, 138, 91, 0.08);
+    border-color: var(--boja-primarna);
+}
+
+.recenzija-zaglavlje {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.recenzija-autor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.oznaka-moja-recenzija {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--boja-primarna-tamna);
+    background: rgba(255, 138, 91, 0.15);
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.recenzija-ocena {
+    color: var(--boja-upozorenje);
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.recenzija p {
+    margin: 0;
+}
+
+.forma-recenzije {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--boja-ivica);
+}

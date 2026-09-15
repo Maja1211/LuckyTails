@@ -1,0 +1,54 @@
+.filter-karta {
+    margin-bottom: 28px;
+}
+
+.filter-mreza {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px 16px;
+    margin-bottom: 12px;
+}
+
+.filter-mreza .polje {
+    margin-bottom: 0;
+}
+
+.rezultati {
+    margin-top: 8px;
+}
+
+.zivotinja-kartica {
+    padding: 0;
+    overflow: hidden;
+    color: inherit;
+    display: block;
+}
+
+.zivotinja-kartica:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    transition: transform 0.15s ease;
+}
+
+.zivotinja-kartica img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    padding: 14px;
+    background: var(--boja-pozadina);
+    box-sizing: border-box;
+}
+
+.zivotinja-info {
+    padding: 14px 16px;
+}
+
+.zivotinja-info h3 {
+    margin-bottom: 4px;
+}
+
+.zivotinja-lokacija {
+    color: var(--boja-tekst-slaba);
+    font-size: 0.85rem;
+}

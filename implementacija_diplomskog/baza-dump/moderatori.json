@@ -1,0 +1,13 @@
+[{
+	"_id": {
+		"$oid": "6a8ed438b16497e224615453"
+	},
+	"ime": "Moderator Test",
+	"email": "moderator@luckytails.test",
+	"lozinka": "$2b$10$UbYNHzIbhV7QF5SWQ92Le.2NkywSrdYv0.hxHIedbeyAxijo9lUBa",
+	"datumKreiranja": {
+		"$date": "2026-08-26T11:55:36.124Z"
+	},
+	"korisnickoIme": "moderator"
+}]
+

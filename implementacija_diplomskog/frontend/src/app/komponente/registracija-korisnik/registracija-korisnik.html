@@ -1,0 +1,63 @@
+<div class="kontejner">
+  <div class="karta forma">
+    <h2>{{ 'AUTH.REGISTRACIJA_KORISNIK_NASLOV' | translate }}</h2>
+
+    @if (uspesno) {
+      <p class="poruka poruka-uspeh">{{ 'AUTH.USPESNA_REGISTRACIJA' | translate }}</p>
+      <a routerLink="/login" class="dugme dugme-primarno">{{ 'AUTH.VEC_IMATE_NALOG' | translate }}</a>
+    } @else {
+
+      <form #f="ngForm" (ngSubmit)="registruj(f)">
+        <div class="polje">
+          <label>{{ 'COMMON.IME' | translate }} *</label>
+          <input type="text" [(ngModel)]="ime" name="ime" required #imePolje="ngModel">
+          @if (imePolje.invalid && imePolje.touched) {
+            <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+          }
+        </div>
+
+        <div class="polje">
+          <label>{{ 'COMMON.PREZIME' | translate }} *</label>
+          <input type="text" [(ngModel)]="prezime" name="prezime" required #prezimePolje="ngModel">
+          @if (prezimePolje.invalid && prezimePolje.touched) {
+            <span class="greska-polja">{{ 'VALIDACIJA.OBAVEZNO' | translate }}</span>
+          }
+        </div>
+
+        <div class="polje">
+          <label>{{ 'COMMON.KORISNICKO_IME' | translate }} *</label>
+          <input type="text" [(ngModel)]="korisnickoIme" name="korisnickoIme" required pattern="[A-Za-z0-9._-]{3,30}" #korisnickoImePolje="ngModel">
+          @if (korisnickoImePolje.invalid && korisnickoImePolje.touched) {
+            <span class="greska-polja">{{ 'VALIDACIJA.KORISNICKO_IME_NEISPRAVNO' | translate }}</span>
+          }
+        </div>
+
+        <div class="polje">
+          <label>{{ 'COMMON.EMAIL' | translate }} *</label>
+          <input type="email" [(ngModel)]="email" name="email" required email #emailPolje="ngModel">
+          @if (emailPolje.invalid && emailPolje.touched) {
+            <span class="greska-polja">{{ 'VALIDACIJA.EMAIL_NEISPRAVAN' | translate }}</span>
+          }
+        </div>
+
+        <div class="polje">
+          <label>{{ 'COMMON.LOZINKA' | translate }} *</label>
+          <input type="password" [(ngModel)]="lozinka" name="lozinka" required minlength="6" pattern="(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,30}" #lozinkaPolje="ngModel">
+          @if (lozinkaPolje.invalid && lozinkaPolje.touched) {
+            <span class="greska-polja">{{ 'VALIDACIJA.LOZINKA_KRATKA' | translate }}</span>
+          }
+        </div>
+
+        @if (poruka) {
+          <p class="poruka poruka-greska">{{ poruka }}</p>
+        }
+
+        <button type="submit" class="dugme dugme-primarno">{{ 'COMMON.POSALJI' | translate }}</button>
+      </form>
+
+      <p style="margin-top: 20px;">
+        {{ 'AUTH.VEC_IMATE_NALOG' | translate }} <a routerLink="/login">{{ 'AUTH.PRIJAVI_SE' | translate }}</a>
+      </p>
+    }
+  </div>
+</div>

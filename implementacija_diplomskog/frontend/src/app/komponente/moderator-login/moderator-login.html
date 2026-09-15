@@ -1,0 +1,25 @@
+<div class="kontejner">
+  <div class="karta forma">
+    <h2>{{ 'AUTH.MODERATOR_PRIJAVA_NASLOV' | translate }}</h2>
+
+    <div class="polje">
+      <label>{{ 'COMMON.KORISNICKO_IME' | translate }}</label>
+      <input type="text" [(ngModel)]="korisnickoIme" name="korisnickoIme">
+    </div>
+
+    <div class="polje">
+      <label>{{ 'COMMON.LOZINKA' | translate }}</label>
+      <input type="password" [(ngModel)]="lozinka" name="lozinka" (keyup.enter)="prijaviSe()">
+    </div>
+
+    @if (poruka) {
+      <p class="poruka poruka-greska">{{ poruka }}</p>
+    }
+
+    <button class="dugme dugme-primarno" (click)="prijaviSe()">{{ 'AUTH.PRIJAVI_SE' | translate }}</button>
+
+    <p style="margin-top: 12px;">
+      <a routerLink="/zaboravljena-lozinka">{{ 'AUTH.ZABORAVILI_LOZINKU' | translate }}</a>
+    </p>
+  </div>
+</div>

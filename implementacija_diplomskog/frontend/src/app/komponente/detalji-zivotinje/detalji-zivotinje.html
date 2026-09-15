@@ -1,0 +1,112 @@
+<div class="kontejner">
+  @if (ucitavanje) {
+    <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+  } @else if (zivotinja == null) {
+    <p class="poruka poruka-greska">{{ 'COMMON.NEMA_PODATAKA' | translate }}</p>
+  } @else {
+
+    <div class="detalji-raspored">
+      <div class="karta">
+        @if (izabranaSlika) {
+          <img class="glavna-slika" [src]="slika(izabranaSlika)" [alt]="zivotinja.naziv">
+        } @else {
+          <img class="glavna-slika" src="/assets/img/plejsholder-zivotinja.svg" [alt]="zivotinja.naziv">
+        }
+
+        @if (zivotinja.fotografije.length > 1) {
+          <div class="traka-minijatura">
+            @for (f of zivotinja.fotografije; track f) {
+              <button
+                type="button"
+                class="minijatura"
+                [class.minijatura-aktivna]="f == izabranaSlika"
+                (click)="izaberiSliku(f)"
+              >
+                <img [src]="slika(f)" [alt]="zivotinja.naziv">
+              </button>
+            }
+          </div>
+        }
+
+        <div class="naslov-red">
+          <h2>{{ zivotinja.naziv }}</h2>
+          <span class="oznaka oznaka-odobreno">{{ 'ZIVOTINJA.STATUS_' + zivotinja.statusZivotinje.toUpperCase() | translate }}</span>
+        </div>
+
+        <p>{{ zivotinja.rasa | prevediRasu }} · {{ zivotinja.starostMeseci | starost }} · {{ 'PRETRAGA.' + zivotinja.pol.toUpperCase() | translate }}</p>
+
+        <h4>{{ 'ZIVOTINJA.KARAKTER' | translate }}</h4>
+        <p>{{ zivotinja.opisKaraktera | prevediTekst }}</p>
+
+        <p><strong>{{ 'ZIVOTINJA.STERILISAN' | translate }}:</strong> {{ (zivotinja.sterilisan ? 'COMMON.DA' : 'COMMON.NE') | translate }}</p>
+        <p><strong>{{ 'ZIVOTINJA.VAKCINISAN' | translate }}:</strong> {{ (zivotinja.vakcinisan ? 'COMMON.DA' : 'COMMON.NE') | translate }}</p>
+
+        @if (zivotinja.zdravstveneInfo) {
+          <h4>{{ 'ZIVOTINJA.ZDRAVSTVENO' | translate }}</h4>
+          <p>{{ zivotinja.zdravstveneInfo | prevediTekst }}</p>
+        }
+
+        @if (auth.ulogovanUloga() == 'korisnik') {
+          <button class="dugme dugme-sekundarno" (click)="prekidacOmiljene()">
+            {{ (jeOmiljena ? 'ZIVOTINJA.UKLONI_OMILJENE' : 'ZIVOTINJA.DODAJ_OMILJENE') | translate }}
+          </button>
+        }
+      </div>
+
+      <div class="karta">
+        <h3>{{ 'ZIVOTINJA.AZIL' | translate }}: <a [routerLink]="['/azil', zivotinja.azilId?._id]">{{ zivotinja.azilId?.naziv }}</a></h3>
+        <p>📍 {{ zivotinja.azilId?.lokacija }} - {{ zivotinja.azilId?.adresa }}</p>
+
+        <h4>{{ 'ZIVOTINJA.KONTAKT_AZILA' | translate }}</h4>
+        <p>📞 {{ zivotinja.azilId?.telefon }}</p>
+        <p>✉️ {{ zivotinja.azilId?.email }}</p>
+
+        @if (auth.ulogovanUloga() == 'korisnik' && zivotinja.statusZivotinje != 'udomljena') {
+          <hr>
+          <h4>{{ 'TERMIN.ZAKAZI_NASLOV' | translate }}</h4>
+
+          @if (zivotinja.statusZivotinje == 'rezervisana') {
+            <p class="formular-napomena">{{ 'TERMIN.NAPOMENA_REZERVISANA' | translate }}</p>
+          }
+
+          @if (terminZakazan) {
+            <p class="poruka poruka-uspeh">{{ 'TERMIN.USPESNO_ZAKAZANO' | translate }}</p>
+          } @else {
+
+            <div class="polje">
+              <label>{{ 'TERMIN.IZABERI_DATUM' | translate }}</label>
+              <input type="date" [(ngModel)]="datumTermina" [min]="danasIso" (change)="ucitajSlotove()">
+            </div>
+
+            @if (ucitavanjeSlotova) {
+              <p>{{ 'COMMON.UCITAVANJE' | translate }}</p>
+            } @else if (datumTermina && slotovi.length == 0) {
+              <p class="poruka poruka-greska">{{ 'TERMIN.NEMA_SLOTOVA' | translate }}</p>
+            } @else if (slotovi.length > 0) {
+              <div class="slotovi">
+                @for (s of slotovi; track s) {
+                  <button
+                    class="dugme dugme-malo"
+                    [class.dugme-primarno]="izabraniSlot == s"
+                    [class.dugme-sekundarno]="izabraniSlot != s"
+                    (click)="izabraniSlot = s"
+                  >{{ s }}</button>
+                }
+              </div>
+
+              @if (izabraniSlot) {
+                <button class="dugme dugme-primarno" style="margin-top: 14px;" (click)="zakaziTermin()">
+                  {{ 'ZIVOTINJA.ZAKAZI_POSETU' | translate }}
+                </button>
+              }
+            }
+
+            @if (porukaTermina) {
+              <p class="poruka poruka-greska">{{ porukaTermina }}</p>
+            }
+          }
+        }
+      </div>
+    </div>
+  }
+</div>
